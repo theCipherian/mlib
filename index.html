@@ -5,11 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link type="image/png" rel="icon" href="assets/icons8-cells-basicons-—-line-32.png">
+    <link href="https://api.fontshare.com/v2/css?f[]=supreme@100,500&display=swap" rel="stylesheet">
     <title>Mocklib</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            transition: all .5s ease;
+        }
+        html{
+            font-family: 'Supreme', sans-serif;
+        }
+        .alpha{
+            font-family: 'Pacifico', cursive;
+        }
+        .top_area{
+            display:flex;
+            align-items: center;
+            width:100%;
+            height:5rem;
+            justify-content:space-between;
+            padding-left:2rem;
+            padding-right:2rem;
+        }
+        .one{
+          background-color:#eeee;
+          border-radius:50%;
+          width:50px;
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          height:50px;
+        }
+        .beta i{
+            margin-left:1.5rem;
+            font-size:2.2rem;
+            cursor:pointer;
+        }
+        
+        .beta i:hover{
+            color:grey;
+        }
+
+        .beta{
+            display:flex;
+            align-items: center;
+
+        }
+        .lib_holder{
+            padding-left:2rem;
+            padding-right:2rem;
+            display:flex;
+        }
+        .lib_{
+            margin:1rem;
+            padding:1rem;
+            min-width:7rem;
+            width:max-content;
+            height:3rem;
+            border:2px solid #121121;
+            border-radius:5px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lib_ div{
+            padding:5px;
+        }
+        .lib_:hover{
+            background-color:rgba(0,0,0,0.02);
+            cursor:pointer;
+        }
+        .logs{
+            display:flex;
+            width:100%;
+            padding-left:2rem;
+            padding-right:2rem;
+            justify-content:space-between;
+        }
+        .log_item{
+            width:100%;
+            margin:10px;
+            height:100vh;
+        }
+        .head_items i{
+            font-size:2rem;
+        }
+        .head_items{
+            font-size:18px;
+            display:flex;
+            width:100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .matt{
+            display:flex;
+            align-items: center;
+            margin-right:10px;
+        }
+        .matt i{
+            padding:5px;
+            cursor:pointer;
+        }
+        .matt2{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            background-color:#eee;
+            border-radius:50%;
+        }
+    </style>
 </head>
 <body>
-    <div>
-
+    
+    <div class="top_area">
+       <div class="alpha"><h1>Mocklib</h1></div>
+       <div class="beta">
+        <div class="one"><img src="assets/icons8-cells-basicons-—-line-32.png" alt=""></div>
+        <div><i class='bx bx-cog'></i></div>
+       </div>
+    </div>
+    <div class="lib_holder">
+        <div class="lib_">Departments <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_">Students <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_">Comments <div><i class='bx bx-pencil' ></i></div> </div>
+    </div>
+    <br>
+    <div class="logs">
+        <div class="log_item">
+            <div class="head_items">
+                <div class="matt"><i class='bx bx-collection'></i> Materials</div>
+                <div class="matt matt2"><i class='bx bx-plus'></i></div>
+                <div class="matt">Sort by <i class='bx bx-chevron-down'></i></div>
+            </div>
+        </div>
+        <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
+            <div class="head_items">
+                <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
