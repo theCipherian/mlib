@@ -22,6 +22,7 @@
         html{
             font-family: 'Supreme', sans-serif;
         }
+        
         .alpha{
             font-family: 'Pacifico', cursive;
         }
@@ -34,6 +35,7 @@
             padding-left:2rem;
             padding-right:2rem;
         }
+        
         .one{
           background-color:#ffffffee;
           border-radius:50%;
@@ -126,6 +128,11 @@
             background-color:#eee;
             border-radius:50%;
         }
+        select{
+            border:none;
+            cursor:pointer;
+            outline:none;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +155,11 @@
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Materials</div>
                 <div class="matt matt2"><i class='bx bx-plus'></i></div>
-                <div class="matt">Sort by <i class='bx bx-chevron-down'></i></div>
+                <div class="matt"><select size="1">
+                    <option value="">Sort by</option>
+                    <option value="1">Latest commits</option>
+                    <option value="2">Oldest commits</option>
+                  </select></div>
             </div>
         </div>
         <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
