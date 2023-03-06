@@ -140,18 +140,18 @@ include("init.php");
             outline:none;
         }
         .sidepart{
-    animation: sikes 1s ease;
-    position:fixed;
-    right:0;
-    bottom:0;
-    width:45%;
-    background-color:#fff;
-    padding:1rem;
-    transform:translateX(0%);
-    height:100vh;
-    z-index:999 !important;
-    box-shadow: -5px 0 5px -5px rgba(0,0,0,.1);
-}
+        animation: sikes 1s ease;
+        position:fixed;
+        right:0;
+        bottom:0;
+        width:45%;
+        background-color:#fff;
+        padding:1rem;
+        transform:translateX(0%);
+        height:100vh;
+        z-index:999 !important;
+        box-shadow: -5px 0 5px -5px rgba(0,0,0,.1);
+        }
 .sidepart_items{
    overflow-x:hidden;
    overflow-y:scroll;
@@ -207,6 +207,7 @@ input{
     border-radius:5px;
     height:4.2rem;
     padding:10px;
+    font-family: 'Supreme', sans-serif;
 }
 .label-float{
   position: relative;
@@ -277,10 +278,32 @@ input{
   background-color:black;
   color:#fff;
   align-items:center;
+  cursor:pointer;
   justify-content: center;
+}
+.btn:hover{
+    background-color:grey;
 }
 .cont{
   padding:1rem;
+}
+.flow{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:black;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:10%;
+    display:none;
+}
+.list{
+  padding:1rem;
+  border-bottom:1px solid #ddd;
+  cursor:pointer;
 }
     </style>
 </head>
@@ -307,6 +330,7 @@ input{
                     <option value="">Sort by</option>
                     <option value="1">Latest commits</option>
                     <option value="2">Oldest commits</option>
+                    <option value="2">Departments</option>
                   </select></div>
             </div>
         </div>
@@ -322,8 +346,16 @@ input{
   
         </div>
     </div>
+    <div class="flow">Hello world</div>
 </body>
 <script>
+    let flow = (text) =>{
+        $(".flow").text(text);
+        $(".flow").css("display","flex");
+        setTimeout(() => {
+         $(".flow").css("display","none");
+        }, 2000);
+    }
       $("#sidepart_terminate").click(function(){
             $(".sidepart").addClass("noner");
         })

@@ -15,5 +15,8 @@ include("init.php");
     $unique_naming = $arr['unique_id'];
     $naming = $arr['naming'];
      ?>
+     <div class='list' style='display:flex;align-items:center'>
+        <?php  echo $naming ?> &nbsp<i class='bx bx-pencil' ></i>
+     </div>
   <?php
    }
