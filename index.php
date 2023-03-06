@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("init.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link type="image/png" rel="icon" href="assets/icons8-cells-basicons-—-line-32.png">
     <link href="https://api.fontshare.com/v2/css?f[]=supreme@100,500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <title>Mocklib</title>
     <style>
         *{
@@ -133,10 +139,71 @@
             cursor:pointer;
             outline:none;
         }
+        .sidepart{
+    animation: sikes 1s ease;
+    position:fixed;
+    right:0;
+    bottom:0;
+    width:45%;
+    background-color:#fff;
+    padding:1rem;
+    transform:translateX(0%);
+    height:100vh;
+    z-index:999 !important;
+    box-shadow: -5px 0 5px -5px rgba(0,0,0,.1);
+}
+.sidepart_items{
+   overflow-x:hidden;
+   overflow-y:scroll;
+   bottom:0;
+   left:0;
+   position:absolute;
+   right:1rem;
+   height:90%;
+   bottom:0;
+   padding:10px;
+}
+.sidepart_items::-webkit-scrollbar{
+    background-color:rgba(255, 166, 0, 0.01);
+}
+
+.sidepart_items::-webkit-scrollbar-thumb{
+    border-radius:30px;
+    background-color:rgba(138, 43, 226, 0.09);
+}
+.sidepart_header{
+    position:absolute;
+    left:0;
+    padding:1rem;
+    font-size:15px;
+    width:100%;
+    flex-direction:row-reverse;
+    background-color:#fff;
+    top:5px;
+    display:flex;
+    height:10%;
+    justify-content:space-between;
+    align-items:center;
+}
+@media screen and (max-width:800px){
+    .sidepart{
+        width:95%;
+    }
+    .other_sidepart_main{
+     display:none;
+}
+}
+.icon_hover{
+    color:#ddd;
+    cursor: pointer;
+    font-size:3rem;
+}
+.noner{
+    display: none;
+}
     </style>
 </head>
 <body>
-    
     <div class="top_area">
        <div class="alpha"><h1>Mocklib</h1></div>
        <div class="beta">
@@ -145,7 +212,7 @@
        </div>
     </div>
     <div class="lib_holder">
-        <div class="lib_">Departments <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_">Students <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_">Comments <div><i class='bx bx-pencil' ></i></div> </div>
     </div>
@@ -168,5 +235,21 @@
             </div>
         </div>
     </div>
+    <div class='sidepart noner'>
+        <div class='sidepart_header'> <span class='thing_345' id='data_change_232'></span> <div id='sidepart_terminate'> <i class='bx bx-chevron-right icon_hover'></i></div> </div>
+        <div class='sidepart_items' id='get_data_3432'>
+  
+        </div>
+    </div>
 </body>
+<script>
+      $("#sidepart_terminate").click(function(){
+            $(".sidepart").addClass("noner");
+        })
+        $(".l01").click(function(){
+           $(".sidepart").removeClass("noner");
+           $("#data_change_232").text("");
+           $("#get_data_3432").load("departments.php");
+        });
+</script>
 </html>
