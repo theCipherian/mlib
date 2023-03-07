@@ -9,16 +9,34 @@ if(isset($_GET['department'], $_GET['id'])){
 <div>
     to
 </div>
+<br>
 <div class="sikes">
 <div class="label-float">
-<input id='data_1' type="text" placeholder="Enter department"/>
+<input id='data_2'  type="text" placeholder="Enter department"/>
 <label>Enter department</label>
 </div>
 <br/>
 </div>
 <br>
-<div class="btn create_1">Update</div>
+<div data-target = '<?php echo $_GET['id'] ?>' class="btn create_2">Update</div>
 
 <?php
 }
 ?>
+<script>
+   $(".create_2").click(function(){
+     let data_2 = document.getElementById("data_2");
+     let target = $(this).attr("data-target");
+     $.ajax({
+          url:"parser.php",
+          type:"post",
+          async:false,
+          data:{
+              "create_2":data_2.value,
+              "target":target
+          },success:function(data){
+           flow(data);  
+          }
+      })
+   })
+</script>

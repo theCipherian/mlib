@@ -315,7 +315,7 @@ input{
     bottom:0;
     width: 100%;
     background-color:#fff;
-    height:40vh;
+    height:50%;
     display:none;
     margin:0 auto;
     border-top:1px solid #ddd;
@@ -372,7 +372,7 @@ input{
     <div class='sidepart noner'>
     <div class="morph">
     <div class="closer"><i class='bx bx-x' ></i></div>
-      <div id='nl3'>
+      <div id='nl3' style='padding:1rem;'>
 
       </div>
         

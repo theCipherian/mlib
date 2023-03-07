@@ -15,7 +15,7 @@ include("init.php");
     $unique_naming = $arr['unique_id'];
     $naming = $arr['naming'];
      ?>
-     <div class='list' data-target = '<?php echo $unique_naming  ?>' style='display:flex;align-items:center'>
+     <div class='list' data-target = '<?php echo $unique_naming  ?>' data-name = '<?php  echo $naming  ?>' style='display:flex;align-items:center'>
         <?php  echo $naming ?> &nbsp<i class='bx bx-pencil' ></i>
      </div>
   <?php
@@ -26,6 +26,10 @@ include("init.php");
 <script>
     $(".list").click(function(){
         let data = $(this).attr("data-target");
-        $("#nl3").load("update_department.php");
+        let naming = $(this).attr("data-name");
+        $(".morph").css("display","flex");
+        var uri  = "update_department.php?department="+naming+"&id="+data+""
+        var encoded = encodeURI(uri);
+        $("#nl3").load(encoded);
     })
 </script>
