@@ -8,15 +8,24 @@ include("init.php");
    $is_it = mysqli_num_rows($query);
    if($is_it < 1){
     ?>
-<span style='padding:1rem;'>   NO EXISTING DEPARTMENTS</span>
+<span style='padding:1rem;'> NO EXISTING DEPARTMENTS</span>
    <?php
    }else{
-    $arr = mysqli_fetch_array($query);
+    while($arr = mysqli_fetch_array($query)){
     $unique_naming = $arr['unique_id'];
     $naming = $arr['naming'];
      ?>
-     <div class='list' style='display:flex;align-items:center'>
+     <div class='list' data-target = '<?php echo $unique_naming  ?>' style='display:flex;align-items:center'>
         <?php  echo $naming ?> &nbsp<i class='bx bx-pencil' ></i>
      </div>
   <?php
    }
+}
+?>
+
+<script>
+    $(".list").click(function(){
+        let data = $(this).attr("data-target");
+        flow(data);
+    })
+</script>
