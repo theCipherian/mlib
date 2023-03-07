@@ -26,6 +26,6 @@ include("init.php");
 <script>
     $(".list").click(function(){
         let data = $(this).attr("data-target");
-        flow(data);
+        $("#nl3").load("update_department.php");
     })
 </script>

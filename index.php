@@ -309,6 +309,31 @@ input{
 .list:hover{
     background-color:rgba(0,0,0,0.01);
 }
+.morph{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width: 100%;
+    background-color:#fff;
+    height:40vh;
+    display:none;
+    margin:0 auto;
+    border-top:1px solid #ddd;
+    z-index:9999 !important;
+} 
+.closer{
+    margin:1rem;
+    float:right;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color:#eee;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+    justify-content: center;
+    font-size:1.5rem;
+}
     </style>
 </head>
 <body>
@@ -345,19 +370,20 @@ input{
         </div>
     </div>
     <div class='sidepart noner'>
+    <div class="morph">
+    <div class="closer"><i class='bx bx-x' ></i></div>
+      <div id='nl3'>
+
+      </div>
+        
+    </div>
         <div class='sidepart_header'> <span class='thing_345' id='data_change_232'></span> <div id='sidepart_terminate'> <i class='bx bx-chevron-right icon_hover'></i></div> </div>
         <div class='sidepart_items' id='get_data_3432'>
   
         </div>
     </div>
     <div class="flow">Hello world</div>
-    <div class="morph">
-    <div class="closer"></div>
-      <div>
-
-      </div>
-        
-    </div>
+ 
 </body>
 <script>
     let flow = (text) =>{
