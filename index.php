@@ -357,7 +357,7 @@ select{
     <div class="lib_holder">
         <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_ l02">Students <div><i class='bx bx-pencil' ></i></div> </div>
-        <div class="lib_">Comments <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_ l03">Comments <div><i class='bx bx-pencil' ></i></div> </div>
     </div>
     <br>
     <div class="logs">
@@ -417,6 +417,12 @@ select{
            $(".sidepart").removeClass("noner");
            $("#data_change_232").text("Students");
            $("#get_data_3432").load("students.php");
+           $(".morph").css("display","none");
+        });
+        $(".l03").click(function(){
+           $(".sidepart").removeClass("noner");
+           $("#data_change_232").text("Comment");
+           $("#get_data_3432").load("edit_comments.php");
            $(".morph").css("display","none");
         });
         $(".closer").click(function(){
