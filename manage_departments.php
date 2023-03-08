@@ -16,7 +16,7 @@ include("init.php");
     $naming = $arr['naming'];
      ?>
      <div class='list' data-target = '<?php echo $unique_naming  ?>' data-name = '<?php  echo $naming  ?>' style='display:flex;align-items:center'>
-        <?php  echo $naming ?> &nbsp<i class='bx bx-pencil' ></i>
+        <?php  echo $naming ?> &nbsp<i class='bx bx-pencil' ></i>&nbsp <div style='padding:10px;background-color:rgb(50,205,50,0.09);color:limegreen;border-radius:10px'>ID&nbsp<?php echo $unique_naming  ?></div>
      </div>
   <?php
    }

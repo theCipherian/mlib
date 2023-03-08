@@ -36,10 +36,13 @@ if(isset($_POST['create_2'], $_POST['target'])){
     $department = trim($_POST['create_2']);
     $id = trim($_POST['target']);
     if(strlen($department) > 0){
-    $query = mysqli_query($init, "SELECT * FROM departments WHERE unique_id = '$department'");
+    $query = mysqli_query($init, "SELECT * FROM departments WHERE unique_id = '$id'");
     $is_it = mysqli_num_rows($query);
     if($is_it > 0){
          $query = mysqli_query($init, "UPDATE departments SET naming = '$department' WHERE unique_id = '$id'");
+         if($query){
+         echo "Updated";
+         }
     }else{  
         echo "Some error occured";
     }

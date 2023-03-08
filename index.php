@@ -395,11 +395,16 @@ input{
     }
       $("#sidepart_terminate").click(function(){
             $(".sidepart").addClass("noner");
+            $(".morph").css("display","none");
         })
         $(".l01").click(function(){
            $(".sidepart").removeClass("noner");
-           $("#data_change_232").text("");
+           $("#data_change_232").text("Departments");
            $("#get_data_3432").load("departments.php");
+           $(".morph").css("display","none");
         });
+        $(".closer").click(function(){
+            $(".morph").css("display","none");
+        })
 </script>
 </html>

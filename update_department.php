@@ -36,6 +36,7 @@ if(isset($_GET['department'], $_GET['id'])){
               "target":target
           },success:function(data){
            flow(data);  
+           $("#get_data_3432").load("manage_departments.php");
           }
       })
    })
