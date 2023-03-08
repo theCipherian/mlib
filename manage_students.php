@@ -11,26 +11,27 @@ include("init.php");
     }else{
    
      ?>
+     <div class='cont'>
       <div class="sikes">
 <div class="label-float">
-<input id='data_2' type="text" placeholder="Enter email"/>
-<label>Enter email</label>
+<input id='search_1' type="text" placeholder="Enter student email"/>
+<label>Enter student email</label>
 </div>
 <br/>
 </div>
 <br>
-<div class="btn search_1">Create</div>
+<div class="btn search_1">Search</div>
+    </div>
   <?php
    
 }
 ?>
 
 <script>
-    $(".list").click(function(){
-        let data = $(this).attr("data-target");
-        let naming = $(this).attr("data-name");
+    $(".search_1").click(function(){
+        let data = document.getElementById("search_1");
         $(".morph").css("display","flex");
-        var uri  = "update_department.php?department="+naming+"&id="+data+""
+        var uri  = "view_student.php?data="+data.value+"";
         var encoded = encodeURI(uri);
         $("#nl3").load(encoded);
     })
