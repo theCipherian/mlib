@@ -346,7 +346,7 @@ input{
     </div>
     <div class="lib_holder">
         <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
-        <div class="lib_">Students <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_ l02">Students <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_">Comments <div><i class='bx bx-pencil' ></i></div> </div>
     </div>
     <br>
@@ -401,6 +401,12 @@ input{
            $(".sidepart").removeClass("noner");
            $("#data_change_232").text("Departments");
            $("#get_data_3432").load("departments.php");
+           $(".morph").css("display","none");
+        });
+        $(".l02").click(function(){
+           $(".sidepart").removeClass("noner");
+           $("#data_change_232").text("Students");
+           $("#get_data_3432").load("students.php");
            $(".morph").css("display","none");
         });
         $(".closer").click(function(){
