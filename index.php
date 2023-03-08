@@ -334,6 +334,16 @@ input{
     justify-content: center;
     font-size:1.5rem;
 }
+select{
+    font-size:18px;
+}
+.note{
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background-color:rgba(50,205,50,0.09);
+    color:green;
+}
     </style>
 </head>
 <body>
