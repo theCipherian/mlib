@@ -28,7 +28,7 @@ function getName($n) {
 $uni = getName($n);
 $pass = getName($n);
 
-if(isset($_POST['data_1'], $_GET['data_2'], $_GET['data_3'], $_GET['data_4'])){
+if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])){
     $data_1 = trim($_POST['data_1']);
     $data_2 = trim($_POST['data_2']);
     $data_3 = trim($_POST['data_3']);
@@ -44,8 +44,8 @@ if(isset($_POST['data_1'], $_GET['data_2'], $_GET['data_3'], $_GET['data_4'])){
         $body = "";
         $body .='
         These are your login details <br>
-        Email-'.$data_3.'<br>'.
-        'Password-'.$pass.'
+        Email- '.$data_3.'<br>'.
+        'Password- '.$pass.'
         ';
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);

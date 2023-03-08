@@ -7,7 +7,7 @@ include("init.php");
   Manage students
 </div>
 <div class='list s_2'>
-    add new
+    Add new
 </div>
 <script>
   $(".s_1").click(function(){

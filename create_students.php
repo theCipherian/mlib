@@ -55,7 +55,11 @@ include("init.php");
     let data_2 = document.getElementById("data_2");
     let data_3 = document.getElementById("data_3");
     let data_4 = document.getElementById("data_4");
-
+    if(data_1.value.length < 1 || data_2.value.length < 1 || data_3.value.length < 5){
+        flow("Check input")
+    }else if(data_4.value == 'unset'){
+        flow("Select valid department");
+    }else{
     $.ajax({
           url:"students_parser.php",
           type:"post",
@@ -69,6 +73,7 @@ include("init.php");
            flow(data);
           }
       })
+    }
 
   })
 </script>
