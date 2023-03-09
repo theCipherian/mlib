@@ -21,6 +21,7 @@ include("init.php");
 <input id='data_2' type="text" placeholder="Institution name"/>
 <label>Institution name</label>
 </div>
+<div class='button'>Change logo</div>
 <div class="note">Institution name appears accros the platform, same as logo.</div>
 <br/>
 </div>

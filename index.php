@@ -377,6 +377,23 @@ animation: scroll 1.3s linear infinite;
     border-color:limegreen !important;
     color:limegreen !important;
 }
+.button{
+      width:8rem;
+      height:3.8rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background-color:#fff;
+      border:2px dashed grey;
+      cursor:pointer;
+      color:grey;
+      border-radius:5px;
+  }
+  .button{
+   border:2px solid #eee !important;
+   margin:10px;
+}
+
     </style>
 </head>
 <body>
