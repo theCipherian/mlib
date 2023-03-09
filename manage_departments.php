@@ -3,7 +3,11 @@ session_start();
 include("init.php");
 
 
+?>
+<div class="cont">
+<h1>Configurations</h1>
 
+<?php
    $query = mysqli_query($init, "SELECT * FROM departments");
    $is_it = mysqli_num_rows($query);
    if($is_it < 1){
@@ -22,7 +26,7 @@ include("init.php");
    }
 }
 ?>
-
+</div>
 <script>
     $(".list").click(function(){
         let data = $(this).attr("data-target");

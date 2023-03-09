@@ -11,6 +11,8 @@ include("init.php");
     }
 </style>
 <div class='cont'>
+<h1>Students</h1>
+<br>
 <div class="label-float">
 <select class='v' id="data_4">
     <option value="unset">SELECT DEPARTMENT</option>

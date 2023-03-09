@@ -385,7 +385,7 @@ animation: scroll 1.3s linear infinite;
        <div class="alpha"><h1>Mocklib</h1></div>
        <div class="beta">
         <div class="one"><img src="assets/icons8-cells-basicons-—-line-32.png" alt=""></div>
-        <div><i class='bx bx-cog'></i></div>
+        <div class='settings'><i class='bx bx-cog'></i></div>
        </div>
     </div>
     <div class="lib_holder">
@@ -463,6 +463,12 @@ animation: scroll 1.3s linear infinite;
            $(".sidepart").removeClass("noner");
            $("#data_change_232").text("Materials");
            $("#get_data_3432").load("add_material.php");
+           $(".morph").css("display","none");
+        });
+        $(".settings").click(function(){
+           $(".sidepart").removeClass("noner");
+           $("#data_change_232").text("Settings");
+           $("#get_data_3432").load("settings.php");
            $(".morph").css("display","none");
         });
         $(".closer").click(function(){

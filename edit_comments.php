@@ -13,14 +13,17 @@ include("init.php");
         
     }
 </style>
-
-<div style='width:100%;padding:1rem;'>
+<div class='cont'>
+<h1>Configurations</h1>
+<br>
+<div style='width:100%;'>
 <label for="">Write comment to students here</label>
 <br>
 <br>
     <textarea class='comment' name="" id="" cols="30" rows="10"></textarea>
     <br>
     <div id='send' class="btn">Send</div>
+</div>
 </div>
 <script>
     $("#send").click(function(){

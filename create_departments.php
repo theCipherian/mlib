@@ -3,6 +3,7 @@ session_start();
 include("init.php");
 ?>
 <div class='cont'>
+<h1>Department</h1>
 <div class="sikes">
 <div class="label-float">
 <input id='data_1' type="text" placeholder="Enter department"/>

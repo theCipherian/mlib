@@ -12,6 +12,7 @@ include("init.php");
    
      ?>
      <div class='cont'>
+     <h1>View student</h1>
       <div class="sikes">
 <div class="label-float">
 <input id='search_1' type="text" placeholder="Enter student email"/>
