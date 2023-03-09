@@ -50,3 +50,10 @@ if(isset($_POST['create_2'], $_POST['target'])){
         echo "Check input";
     }
 }
+if(isset($_POST['comment'])){
+    $comment = trim($_POST['comment']);
+    $query = mysqli_query($init, "INSERT INTO comments VALUES ('$uni','$comment')");
+    if($query){
+        echo "Comment added";
+    }
+}

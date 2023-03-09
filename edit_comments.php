@@ -6,8 +6,9 @@ include("init.php");
     .comment{
         width:95%;
         padding:1rem;
-        height:10rem;
+        min-height:10rem;
         border:2px solid #121212;
+        font-family: 'Supreme', sans-serif;
         border-radius:8px;
         
     }
@@ -18,4 +19,26 @@ include("init.php");
 <br>
 <br>
     <textarea class='comment' name="" id="" cols="30" rows="10"></textarea>
+    <br>
+    <div id='send' class="btn">Send</div>
 </div>
+<script>
+    $("#send").click(function(){
+        let comment = document.querySelector(".comment");
+        if(comment.value == ''){
+            flow("Check field");
+        }else{
+        $.ajax({
+          url:"parser.php",
+          type:"post",
+          async:false,
+          data:{
+              "comment":comment.value
+          },success:function(data){
+           flow(data);
+          }
+      })
+    }
+    })
+
+</script>
