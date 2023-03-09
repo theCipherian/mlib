@@ -344,9 +344,43 @@ select{
     background-color:rgba(50,205,50,0.09);
     color:green;
 }
+.lineloader{
+  width:100%;
+  max-height:4px !important;
+  height:4px !important;
+  background:linear-gradient(to left, green, limegreen);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999 !important;
+  margin:0;
+background-size: 20%;
+background-repeat:repeat-y;
+background-position:-25% 0;
+border-radius:30px;
+animation: scroll 1.3s linear infinite;
+
+}
+@keyframes scroll{
+  50%{
+    background-size:70%;
+  }
+  100%{
+    background-position:125% 0;
+  }
+}
+.active_button{
+    border-color:limegreen !important;
+    color:limegreen !important;
+}
+.button_active{
+    border-color:limegreen !important;
+    color:limegreen !important;
+}
     </style>
 </head>
 <body>
+<div class='lineloader'></div>
     <div class="top_area">
        <div class="alpha"><h1>Mocklib</h1></div>
        <div class="beta">
@@ -364,7 +398,7 @@ select{
         <div class="log_item">
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Materials</div>
-                <div class="matt matt2"><i class='bx bx-plus'></i></div>
+                <div class="matt matt2 add_material"><i class='bx bx-plus'></i></div>
                 <div class="matt"><select size="1">
                     <option value="">Sort by</option>
                     <option value="1">Latest commits</option>
@@ -425,8 +459,24 @@ select{
            $("#get_data_3432").load("edit_comments.php");
            $(".morph").css("display","none");
         });
+        $(".add_material").click(function(){
+           $(".sidepart").removeClass("noner");
+           $("#data_change_232").text("Materials");
+           $("#get_data_3432").load("add_material.php");
+           $(".morph").css("display","none");
+        });
         $(".closer").click(function(){
             $(".morph").css("display","none");
         })
+        start_loader = () => {
+            document.querySelector(".lineloader").classList.remove("noner");
+        }
+        stop_loader = () => {
+            document.querySelector(".lineloader").classList.add("noner");
+        }
+        start_loader();
+        setTimeout(() => {
+            stop_loader();
+        }, 2000);
 </script>
 </html>
