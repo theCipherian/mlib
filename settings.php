@@ -20,56 +20,66 @@ include("init.php");
         font-size:1.5rem;
         margin:10px;
     }
-    .error{
-        color:red !important;
-    }
-    .active{
-        color:limegreen !important;
-    }
-</style>
-<div class='cont'>
+  
+    </style>
+
+    <div class='cont'>
     <h1>Configurations</h1>
     <div class="sikes">
-<div class="label-float">
-<input id='data_1' type="text" placeholder="Login key"/>
-<label>Login key</label>
-</div>
-<div class="label-float">
-<input id='data_2' type="text" placeholder="Institution name"/>
-<label>Institution name</label>
-</div>
-<br>
+    <div class="label-float">
+    <input class='data_1' type="text" value='<?php echo $key_  ?>' placeholder="Login key"/>
+    <label>Login key</label>
+    </div>
+    <div class="label-float">
+    <input class='data_2' type="text" value='<?php echo $naming  ?>' placeholder="Institution name"/>
+    <label>Institution name</label>
+    </div>
+    <br>
         <div class="label-float">
         <div class='cl'>Change logo <i class='bx bx-cloud-upload'></i></div>
         <input class='pro' style='display:none' type="file">
         </div>
-<br/>
-</div>
-<br>
-<div class="btn create_1">Update</div>
-<div class="note">Institution name appears accros the platform, same as logo.</div>
-</div>
-</div>
-<script>
+    <br/>
+    </div>
+    <br>
+    <div>
+          <?php
+             if($logo == 'none'){
+                ?>
+                    <img src='profiles/logo.png' alt="">
+                <?php
+             }else{
+                ?>
+                    <img src="profiles/<?php echo $logo ?>" alt="">
+                <?php
+             }
+          ?>
+    </div>
+    <br>
+    <div class="btn send create_1">Update</div>
+    <div class="note">Institution name appears accros the platform, same as logo.</div>
+    </div>
+    </div>
+    <script>
      var file_type = '';
      var selection = '';
     $(".cl").click(function(){
         $(".pro").click();
     })
     $(".pro").on('change',function(){
-        var property = document.getElementById('pro').files[0];
+        var property = document.querySelector('.pro').files[0];
         var text_name = property.name;
         var text_extension = text_name.split('.').pop().toLowerCase();
-        if(jQuery.inArray(text_extension,['pdf','docx']) == -1){
+        if(jQuery.inArray(text_extension,['jpg','png','jpeg']) == -1){
           flow("Invalid file extention");
-           $(".pro").text("Invalid file");
-           $(".pro").addClass("error");
+           $(".cl").text("Invalid file");
+           $(".cl").css("color","red");
            file_type = '';
         }else{
           flow("File gotten");
-          $(".pro").text("File gotten");
-          $(".pro").addClass("active");
-          $(".pro").removeClass("error_button");
+          $(".cl").text("File gotten");
+          $(".cl").css("color","limegreen");
+      
           file_type = 'text'
         }
               $(".send").unbind("click").click(function(){
@@ -80,7 +90,7 @@ include("init.php");
                     form_data.append("data_1",data_1.value);
                     form_data.append("data_2",data_2.value);
                     $.ajax({
-                    url:'parser_3.php',
+                    url:'parser_4.php',
                     method:'POST',
                     data:form_data,
                     contentType:false,
@@ -91,6 +101,8 @@ include("init.php");
                     },
                     success:function(data){
                       flow(data);
+                      stop_loader();
+                      $("#get_data_3432").load("settings.php");
                     }
                     });
              
@@ -98,4 +110,30 @@ include("init.php");
           
           })
       });
-</script>
+      $(".send").click(function(){
+        let data_1 = document.querySelector(".data_1");
+             let data_2 = document.querySelector(".data_2");
+             if(data_1.value.length < 5){
+                flow("Key is not long enough");
+             }else if(data_2.value == ''){
+                flow("Institute name")
+             }else{
+                    $.ajax({
+                    url:'parser_5.php',
+                    method:'POST',
+                    data:{
+                        "data_1":data_1.value,
+                        "data_2":data_2.value
+                    },
+                    beforeSend:function(){
+                     start_loader();
+                    },
+                    success:function(data){
+                      flow(data);
+                      stop_loader();
+                      $("#get_data_3432").load("settings.php");
+                    }
+                    });
+                  }
+               })
+             </script>
