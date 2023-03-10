@@ -101,7 +101,31 @@ include("init.php");
     border-color:red !important;
     color:red !important;
 }
+.label-float{
+        margin-left:10px;
+    }
+    .v{
+        font-size:18px;
+    }
 </style>
+<div class="label-float">
+<select class='v' id="department">
+    <option value="unset">SELECT DEPARTMENT</option>
+    <?php 
+      $query = mysqli_query($init, "SELECT * FROM departments");
+      $is_it = mysqli_num_rows($query);
+      if($is_it > 0){
+        while($arr = mysqli_fetch_array($query)){
+            $unique_naming = $arr['unique_id'];
+            $naming = $arr['naming'];
+        ?>
+            <option value="<?php   echo $unique_naming ?>"><?php echo $naming  ?></option>
+        <?php
+       } 
+     }
+    ?>
+</select>
+</div>
 <form class='material_add'>
 <input type="text" id='material_data' placeholder='material name'>
 <p class='p_3422'>Material data</p>
@@ -125,6 +149,7 @@ include("init.php");
              var url_data_text = document.getElementById("url_data_ebook");
               var material_data = document.getElementById("material_data");
              var material_data_note = document.getElementById("material_data_note");
+             var department = document.getElementById("department");
            if(file_type == '' && url_data_text !== ''){
              if(material_data.value == ''){
                flow("Please enter material name");
@@ -139,14 +164,12 @@ include("init.php");
                   data:{
                       "material_data":material_data.value,
                       "data_text": url_data_text.value,
+                      "department":department.value,
                       "material_data_note":material_data_note.value,
                       "type": "ebook_link"
                   },success:function(data){
-                   
                     stop_loader();
                      flow(data);
-                    
-               
                   }
                 })
              }
@@ -174,6 +197,7 @@ include("init.php");
              let material_data = document.getElementById("material_data");
              let url_data_text = document.getElementById("url_data_ebook");
              let material_data_note = document.getElementById("material_data_note");
+             let department = document.getElementById("department");
      
            if(!file_type && url_data_text.value == ''){
             flow("Some error occured");
@@ -185,6 +209,7 @@ include("init.php");
                     form_data.append("file",property);
                     form_data.append("material_data",material_data.value);
                     form_data.append("material_data_note",material_data_note.value);
+                    form_data.append("department",department.value);
                     form_data.append("type","text");
                     $.ajax({
                     url:'parser_2.php',
@@ -214,6 +239,7 @@ include("init.php");
                       "material_data":material_data.value,
                       "data_text": url_data_text.value,
                       "material_data_note":material_data_note.value,
+                      "department":department.value,
                       "data_go": data_go,
                       "type": "ebook_link"
                   },success:function(data){

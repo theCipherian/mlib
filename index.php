@@ -51,6 +51,12 @@ include("init.php");
           align-items: center;
           justify-content: center;
           height:50px;
+          padding:5px;
+        }
+        .one img{
+            width:100%;
+            height:auto;
+            object-fit: cover;
         }
         .one:hover{
             cursor:pointer;
@@ -390,18 +396,30 @@ animation: scroll 1.3s linear infinite;
       border-radius:5px;
   }
   .button{
-   border:2px solid #eee !important;
-   margin:10px;
-}
+      border:2px solid #eee !important;
+      margin:10px;
+  }
 
     </style>
 </head>
 <body>
 <div class='lineloader'></div>
     <div class="top_area">
-       <div class="alpha"><h1>Mocklib</h1></div>
+       <div class="alpha"><h1><?php echo $naming ?></h1></div>
        <div class="beta">
-        <div class="one"><img src="assets/icons8-cells-basicons-—-line-32.png" alt=""></div>
+        <div class="one">
+            <?php
+              if($logo){
+                ?>
+                <img src="profiles/<?php echo $logo ?>" alt="">
+                <?php
+              }else{
+                ?>
+                <img src="assets/icons8-cells-basicons-—-line-32.png" alt="">
+                <?php
+              }
+            ?>
+        </div>
         <div class='settings'><i class='bx bx-cog'></i></div>
        </div>
     </div>
@@ -422,6 +440,10 @@ animation: scroll 1.3s linear infinite;
                     <option value="2">Oldest commits</option>
                     <option value="2">Departments</option>
                   </select></div>
+            </div>
+            <br>
+            <div class='trophy'>
+             
             </div>
         </div>
         <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
@@ -487,9 +509,13 @@ animation: scroll 1.3s linear infinite;
            $("#get_data_3432").load("settings.php");
            $(".morph").css("display","none");
         });
+
+        $(".trophy").load("view_departments.php");
+
         $(".closer").click(function(){
             $(".morph").css("display","none");
         })
+
         start_loader = () => {
             document.querySelector(".lineloader").classList.remove("noner");
         }
