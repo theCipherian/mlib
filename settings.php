@@ -21,6 +21,11 @@ include("init.php");
         margin:10px;
     }
   
+    .seize{
+        width:100%;
+        height:auto;
+        object-fit: cover;
+    }
     </style>
 
     <div class='cont'>
@@ -50,7 +55,9 @@ include("init.php");
                 <?php
              }else{
                 ?>
-                    <img src="profiles/<?php echo $logo ?>" alt="">
+                <div style='width:200px;height:200px;'>
+                <img class='seize' src="profiles/<?php echo $logo ?>" alt="">
+                </div>
                 <?php
              }
           ?>
