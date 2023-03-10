@@ -54,7 +54,7 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
-$query = mysqli_query($init, "SELECT * FROM material");
+$query = mysqli_query($init, "SELECT * FROM material ORDER BY date_ DESC LIMIT 1");
 $is_it = mysqli_num_rows($query);
 
 if($is_it < 0){

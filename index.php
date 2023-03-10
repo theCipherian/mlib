@@ -450,6 +450,9 @@ animation: scroll 1.3s linear infinite;
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
             </div>
+            <div class='trophy_2'>
+             
+             </div>
         </div>
     </div>
     <div class='sidepart noner'>
@@ -511,6 +514,8 @@ animation: scroll 1.3s linear infinite;
         });
 
         $(".trophy").load("view_departments.php");
+
+        $(".trophy_2").load("recent_materials.php");
 
         $(".closer").click(function(){
             $(".morph").css("display","none");
