@@ -14,7 +14,7 @@ include("init.php");
     }
 </style>
 <div class='cont'>
-<h1>Configurations</h1>
+<h1>Comments</h1>
 <br>
 <div style='width:100%;'>
 <label for="">Write comment to students here</label>
