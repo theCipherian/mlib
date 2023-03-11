@@ -95,7 +95,7 @@ if($is_it < 0){
          $get_ = mysqli_fetch_array($get_query);
          $naming_dep = $get_['naming'];
          ?>
-         <div class='listo'>
+         <div class='listo' id='<?php echo $uni_material ?>'>
             <div>
             <div style='display:flex;align-items:center;'>
              <i style='font-size:1.5rem' class='bx bx-book'></i>
@@ -105,7 +105,7 @@ if($is_it < 0){
                 <div><?php  echo $naming_dep ?></div>
                 <br>
                 <div class='row_icons'>
-             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash'></i>
+             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
              <span>Edit</span>
              <span>View</span>
              </div>
@@ -126,19 +126,18 @@ if($is_it < 0){
              </div>
          </div>
          <?php
+        }
     }
-}
-?>
-
-<script>
-    $(".delete_material").click(function(){
-     var data_1 = $(this).attr("data-target");
-     $(".confirm").css("display","flex");
+    ?>
+    <script>
+      $(".delete_material").click(function(){
+      var data_1 = $(this).attr("data-target");
+      $(".confirm").css("display","flex");
       $(".yes").unbind("click").click(function(){
-        
+      $("#"+data_1).css("display","none");
       })
       setTimeout(() => {
          $(".confirm").css("display","none");
       }, 3000);
-    });
+      });
 </script>

@@ -415,6 +415,7 @@ animation: scroll 1.3s linear infinite;
   top:10px;
   display:flex;
   padding:10px;
+  cursor:pointer;
   align-items:center;
   justify-content:space-around;
   width:10rem;
@@ -424,8 +425,29 @@ animation: scroll 1.3s linear infinite;
   display:none;
 }
 
-
-
+.bounce-in-right {
+  animation: bounce-in-right 1s ease;
+}
+@keyframes bounce-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+.yes{
+  width:100%;
+  background:rgba(251,251,251);
+  padding:10px;
+  border-radius:5px;
+  cursor:pointer;
+  text-align:center;
+}
     </style>
 </head>
 <body>
