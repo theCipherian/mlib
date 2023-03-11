@@ -107,7 +107,7 @@ if($is_it < 0){
                 <div class='row_icons'>
              <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
              <span>Edit</span>
-             <span>View</span>
+             <span data-target="<?php echo $material_file  ?>" class='view'>View</span>
              </div>
              </div>
              <br>
@@ -140,4 +140,14 @@ if($is_it < 0){
          $(".confirm").css("display","none");
       }, 3000);
       });
+      $(".view").click(function(){
+        var data_1 = $(this).attr("data-target");
+        flow("Fetching file...")
+        setTimeout(() => {
+            window.open('http://localhost/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1:80/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1:8080/lib/file_uploads/'+data_1+'', '_blank');
+        }, 2000);
+      })
 </script>
