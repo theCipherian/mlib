@@ -1,2 +1,4 @@
-/profiles
-/file_uploads
+*.png
+*.pdf
+*.jpeg
+*.jpg
