@@ -23,10 +23,23 @@ include("init.php");
 }
 .row_icons{
     display:flex;
+    padding-top:10px;
+    border-top:1px solid #ddd;
+    max-width:min-content;
     align-items: center;
+}
+.row_icons span{
+    margin-right:1rem;
 }
 .row_icons i{
     font-size:1.5rem;
+    margin-right:1rem;
+}
+.row_icons i:hover{
+  color:green;
+}
+.row_icons span:hover{
+    color:green;
 }
 </style>
 
@@ -93,6 +106,8 @@ if($is_it < 0){
                 <br>
                 <div class='row_icons'>
              <i class='bx bx-trash'></i>
+             <span>Edit</span>
+             <span>View</span>
              </div>
              </div>
              <br>
