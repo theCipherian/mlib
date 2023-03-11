@@ -450,6 +450,7 @@ animation: scroll 1.3s linear infinite;
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
             </div>
+            <br>
             <div class='trophy_2'>
              
              </div>

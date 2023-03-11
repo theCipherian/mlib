@@ -11,6 +11,7 @@ include("init.php");
 .listo{
     margin-left:10px;
     padding:1rem;
+    margin-bottom:5px;
     border-left:1px solid #121212;
     display:flex;
     align-items: center;
