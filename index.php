@@ -199,6 +199,14 @@ include("init.php");
      display:none;
 }
 }
+@keyframes sikes {
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+        transform:translateX(0%);
+    }
+}
 .icon_hover{
     color:#ddd;
     cursor: pointer;
@@ -399,11 +407,32 @@ animation: scroll 1.3s linear infinite;
       border:2px solid #eee !important;
       margin:10px;
   }
+  .confirm{
+  position:fixed;
+  right:10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.05);
+  border-radius:5px;
+  top:10px;
+  display:flex;
+  padding:10px;
+  align-items:center;
+  justify-content:space-around;
+  width:10rem;
+  background-color:#fff;
+  z-index:999999999;
+  height:3rem;
+  display:none;
+}
+
+
 
     </style>
 </head>
 <body>
 <div class='lineloader'></div>
+<div class='confirm bounce-in-right'>
+  <div class="yes">Confirm</div>
+</div>
     <div class="top_area">
        <div class="alpha"><h1><?php echo $naming ?></h1></div>
        <div class="beta">

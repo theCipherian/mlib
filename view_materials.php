@@ -105,7 +105,7 @@ if($is_it < 0){
                 <div><?php  echo $naming_dep ?></div>
                 <br>
                 <div class='row_icons'>
-             <i class='bx bx-trash'></i>
+             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash'></i>
              <span>Edit</span>
              <span>View</span>
              </div>
@@ -128,3 +128,17 @@ if($is_it < 0){
          <?php
     }
 }
+?>
+
+<script>
+    $(".delete_material").click(function(){
+     var data_1 = $(this).attr("data-target");
+     $(".confirm").css("display","flex");
+      $(".yes").unbind("click").click(function(){
+        
+      })
+      setTimeout(() => {
+         $(".confirm").css("display","none");
+      }, 3000);
+    });
+</script>

@@ -11,6 +11,7 @@ include("init.php");
 .listo{
     margin-left:10px;
     padding:1rem;
+    margin-bottom:5px;
     border-left:1px solid #121212;
     display:flex;
     align-items: center;
@@ -19,6 +20,26 @@ include("init.php");
 .listo:hover{
     background-color: rgba(0,0,0,0.02);
     cursor:pointer;
+}
+.row_icons{
+    display:flex;
+    padding-top:10px;
+    border-top:1px solid #ddd;
+    max-width:min-content;
+    align-items: center;
+}
+.row_icons span{
+    margin-right:1rem;
+}
+.row_icons i{
+    font-size:1.5rem;
+    margin-right:1rem;
+}
+.row_icons i:hover{
+  color:green;
+}
+.row_icons span:hover{
+    color:green;
 }
 </style>
 
@@ -82,8 +103,14 @@ if($is_it < 0){
             </div>
             <br>
                 <div><?php  echo $naming_dep ?></div>
+                <br>
+                <div class='row_icons'>
+             <i class='bx bx-trash'></i>
+             <span>Edit</span>
+             <span>View</span>
              </div>
-             
+             </div>
+             <br>
              <div>
                 <div style='color:green;'>
                 File size
