@@ -21,6 +21,13 @@ include("init.php");
     background-color: rgba(0,0,0,0.02);
     cursor:pointer;
 }
+.row_icons{
+    display:flex;
+    align-items: center;
+}
+.row_icons i{
+    font-size:1.5rem;
+}
 </style>
 
 <?php
@@ -83,8 +90,12 @@ if($is_it < 0){
             </div>
             <br>
                 <div><?php  echo $naming_dep ?></div>
+                <br>
+                <div class='row_icons'>
+             <i class='bx bx-trash'></i>
              </div>
-             
+             </div>
+             <br>
              <div>
                 <div style='color:green;'>
                 File size
