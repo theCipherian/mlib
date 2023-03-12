@@ -505,7 +505,7 @@ animation: scroll 1.3s linear infinite;
                     <option value="">Sort by</option>
                     <option value="1">Latest commits</option>
                     <option value="2">Oldest commits</option>
-                    <option value="2">Departments</option>
+                    <option value="3">Departments</option>
                   </select></div>
             </div>
             <br>
@@ -540,10 +540,13 @@ animation: scroll 1.3s linear infinite;
         var data = document.querySelector(".switch");
         if(data.value == 1){
        $(".trophy").load("latest_commits.php");
+       flow("fetching latest commits");
         }else if(data.value == 2){
             $(".trophy").load("oldest_commits.php");
-        }else{
-            
+            flow("fetching oldest commits");
+        }else if(data.value == 3){
+            $(".trophy").load("search_by_department.php");
+            flow("searching by departments");
         }
     })
     let flow = (text) =>{
