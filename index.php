@@ -501,7 +501,7 @@ animation: scroll 1.3s linear infinite;
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Materials</div>
                 <div class="matt matt2 add_material"><i class='bx bx-plus'></i></div>
-                <div class="matt"><select size="1">
+                <div class="matt"><select class='switch' size="1">
                     <option value="">Sort by</option>
                     <option value="1">Latest commits</option>
                     <option value="2">Oldest commits</option>
@@ -536,6 +536,9 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
+    $(".switch").change(function(){
+       $(".trophy").load("latest_commits.php");
+    })
     let flow = (text) =>{
         $(".flow").text(text);
         $(".flow").css("display","flex");
