@@ -95,7 +95,7 @@ if($is_it < 0){
          $get_ = mysqli_fetch_array($get_query);
          $naming_dep = $get_['naming'];
          ?>
-         <div class='listo'>
+         <div class='listo' id='<?php echo $uni_material ?>'>
             <div>
             <div style='display:flex;align-items:center;'>
              <i style='font-size:1.5rem' class='bx bx-book'></i>
@@ -105,9 +105,9 @@ if($is_it < 0){
                 <div><?php  echo $naming_dep ?></div>
                 <br>
                 <div class='row_icons'>
-             <i class='bx bx-trash'></i>
-             <span>Edit</span>
-             <span>View</span>
+             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
+             <span data-target="<?php  echo $uni_material ?>" class='edit'>Edit</span>
+             <span data-target="<?php echo $material_file  ?>" class='view'>View</span>
              </div>
              </div>
              <br>
@@ -126,5 +126,45 @@ if($is_it < 0){
              </div>
          </div>
          <?php
-    }
-}
+        }
+      }
+    ?>
+    <script>
+      $(".edit").click(function(){
+        var edit = $(this).attr("data-target");
+        $(".sidepart").removeClass("noner");
+        $("#data_change_232").text("Edit");
+        $("#get_data_3432").load("edit_materials.php?data="+edit+"");
+      })
+      $(".delete_material").click(function(){
+      var data_1 = $(this).attr("data-target");
+      $(".confirm").css("display","flex");
+      $(".yes").unbind("click").click(function(){
+      $("#"+data_1).css("display","none");
+      $.ajax({
+            url:"parser.php",
+            type:"post",
+            async:false,
+            data:{
+            "del_data":data_1.value
+            },success:function(data){
+                flow(data);
+                $("#get_data_3432").load("edit_materials.php?data="+data_1.value+""); 
+            }
+          })
+        })
+        setTimeout(() => {
+              $(".confirm").css("display","none");
+        }, 3000);
+      });
+      $(".view").click(function(){
+        var data_1 = $(this).attr("data-target");
+        flow("Fetching file...")
+        setTimeout(() => {
+            window.open('http://localhost/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1:80/lib/file_uploads/'+data_1+'', '_blank');
+            // window.open('http://127.0.0.1:8080/lib/file_uploads/'+data_1+'', '_blank');
+        }, 2000);
+      })
+</script>

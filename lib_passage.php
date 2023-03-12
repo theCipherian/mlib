@@ -703,10 +703,11 @@ input{
     background-color:black;
     color:#fff;
     display:flex;
+    font-size:1.5rem;
     align-items:center;
     justify-content: center;
     height:10%;
-    z-index:999 !important;
+    z-index:999999 !important;
     display:none;
 }
     </style>
@@ -740,6 +741,15 @@ input{
      </div>
 <script>
 $(document).ready(function(){
+
+    let flow = (text) => {
+        $(".flow").text(text);
+        $(".flow").css("display","flex");
+        setTimeout(() => {
+         $(".flow").css("display","none");
+        }, 2000);
+    }
+    
     $("#data_verify").click(function(){
         var key_ = document.querySelector(".lock");
         $.ajax({
