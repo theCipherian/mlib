@@ -22,5 +22,11 @@ include("init.php");
 </select>
 <br>
 <br>
-<div class="btn create_1">Fetch all</div>
+<div class="btn fetch_1">Fetch all</div>
 </div>
+<script>
+    $(".fetch_1").click(function(){
+        var data = document.getElementById("department");
+        $(".trophy").load("fetch_by_departments.php?department="+data.value+"");
+    })
+</script>

@@ -83,7 +83,7 @@ function formatSizeUnits($bytes)
 $query = mysqli_query($init, "SELECT * FROM material WHERE department  = '$dep'");
 $is_it = mysqli_num_rows($query);
 
-if($is_it < 0){
+if($is_it < 1){
     ?>
       <div class='hel'>NO - MATERIALS</div>
     <?php
@@ -134,6 +134,7 @@ if($is_it < 0){
         }
       }
     ?>
+    <div class='btn' style = 'width:max-content'>Reload search</div>
     <script>
       $(".edit").click(function(){
         var edit = $(this).attr("data-target");
