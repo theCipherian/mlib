@@ -695,9 +695,24 @@ input{
     color:#fff !important;
     background-color:black !important;
 }
+.flow{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:black;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:10%;
+    z-index:999 !important;
+    display:none;
+}
     </style>
 </head>
 <body>
+<div class="flow">Hello world</div>
         <div class='lineloader noner'>
     <div id="loading"></div>
     </div>
@@ -726,6 +741,23 @@ input{
 <script>
 $(document).ready(function(){
     $("#data_verify").click(function(){
+        var key_ = document.querySelector(".lock");
+        $.ajax({
+        url:'parser.php',
+        method:'POST',
+        data:{
+            "key":key_.value
+        },
+        beforeSend:function(){
+            start_loader();
+        },
+        success:function(data){
+            flow(data);
+            setTimeout(() => {
+                window.location.href = 'index.php';
+            }, 2000);
+        }
+        });
     });
     start_loader = () => {
         document.querySelector(".lineloader").classList.remove("noner");

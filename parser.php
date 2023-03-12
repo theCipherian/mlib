@@ -67,3 +67,11 @@ if(isset($_POST['id'], $_POST['data01'], $_POST['data02'], $_POST['data03'])){
         echo "data changed";
     }
 }
+
+if(isset($_POST['key'])){
+    $key = $_POST['key'];
+    $query = mysqli_query($init, "SELECT key_ FROM institute WHERE key_ = '$key'");
+    if($query){
+        $_SESSION['key'] = $key;
+    }
+}

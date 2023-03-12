@@ -2,6 +2,13 @@
 session_start();
 include("init.php");
 
+if(!isset($_SESSION['key'])){
+    ?>
+<script>
+    window.location.href = 'lib_passage.php';
+</script>
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
