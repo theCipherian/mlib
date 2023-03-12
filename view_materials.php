@@ -106,7 +106,7 @@ if($is_it < 0){
                 <br>
                 <div class='row_icons'>
              <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
-             <span>Edit</span>
+             <span data-target="<?php  echo $uni_material ?>" class='edit'>Edit</span>
              <span data-target="<?php echo $material_file  ?>" class='view'>View</span>
              </div>
              </div>
@@ -127,18 +127,35 @@ if($is_it < 0){
          </div>
          <?php
         }
-    }
+      }
     ?>
     <script>
+      $(".edit").click(function(){
+        var edit = $(this).attr("data-target");
+        $(".sidepart").removeClass("noner");
+        $("#data_change_232").text("Edit");
+        $("#get_data_3432").load("edit_materials.php?data="+edit+"");
+      })
       $(".delete_material").click(function(){
       var data_1 = $(this).attr("data-target");
       $(".confirm").css("display","flex");
       $(".yes").unbind("click").click(function(){
       $("#"+data_1).css("display","none");
-      })
-      setTimeout(() => {
-         $(".confirm").css("display","none");
-      }, 3000);
+      $.ajax({
+            url:"parser.php",
+            type:"post",
+            async:false,
+            data:{
+            "del_data":data_1.value
+            },success:function(data){
+                flow(data);
+                $("#get_data_3432").load("edit_materials.php?data="+<?php echo $data  ?>+""); 
+            }
+          })
+        })
+        setTimeout(() => {
+              $(".confirm").css("display","none");
+        }, 3000);
       });
       $(".view").click(function(){
         var data_1 = $(this).attr("data-target");

@@ -57,3 +57,13 @@ if(isset($_POST['comment'])){
         echo "Comment added";
     }
 }
+if(isset($_POST['id'], $_POST['data01'], $_POST['data02'], $_POST['data03'])){
+    $post_id = $_POST['id'];
+    $data01 = $_POST['data01'];
+    $data02 = $_POST['data02'];
+    $data03 = $_POST['data03'];
+    $query = mysqli_query($init, "UPDATE material SET material_name = '$data02', status = '$data01', note = '$data03' WHERE unique_id = '$post_id'");
+    if($query){
+        echo "data changed";
+    }
+}

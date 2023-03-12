@@ -1,18 +1,6 @@
 <?php
 include("init.php");
 ?>
-<style>
-
-    .comment{
-        width:95%;
-        padding:1rem;
-        min-height:10rem;
-        border:2px solid #121212;
-        font-family: 'Supreme', sans-serif;
-        border-radius:8px;
-        
-    }
-</style>
 <div class='cont'>
 <h1>Comments</h1>
 <br>
