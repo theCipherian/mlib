@@ -537,7 +537,14 @@ animation: scroll 1.3s linear infinite;
 </body>
 <script>
     $(".switch").change(function(){
+        var data = document.querySelector(".switch");
+        if(data.value == 1){
        $(".trophy").load("latest_commits.php");
+        }else if(data.value == 2){
+            $(".trophy").load("oldest_commits.php");
+        }else{
+            
+        }
     })
     let flow = (text) =>{
         $(".flow").text(text);
