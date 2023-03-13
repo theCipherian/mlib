@@ -149,7 +149,7 @@ if($is_it < 0){
             "del_data":data_1
             },success:function(data){
                 flow(data);
-                $(".trophy").load("view_materials.php?data="+data_1.value+""); 
+                $(".trophy").load("view_materials.php"); 
             }
           })
         })
