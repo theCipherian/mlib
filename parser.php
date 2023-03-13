@@ -83,4 +83,5 @@ if(isset($_POST['key'])){
 if(isset($_POST['del_data'])){
     $del_data = $_POST['del_data'];
     $query = mysqli_query($init, "DELETE FROM material WHERE unique_id = '$del_data'");
+    echo "Deleted";
 }
