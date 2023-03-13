@@ -223,6 +223,8 @@ include("init.php");
                     },
                     success:function(data){
                       flow(data);
+                      stop_loader();
+                      $(".sidepart").addClass("noner");
                     }
                     });
              }

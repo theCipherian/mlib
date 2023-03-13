@@ -149,7 +149,7 @@ if($is_it < 0){
             "del_data":data_1.value
             },success:function(data){
                 flow(data);
-                $("#get_data_3432").load("edit_materials.php?data="+data_1.value+""); 
+                $(".trophy").load("oldest_commits.php"); 
             }
           })
         })

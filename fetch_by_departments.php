@@ -152,10 +152,10 @@ if($is_it < 1){
             type:"post",
             async:false,
             data:{
-            "del_data":data_1.value
+            "del_data":data_1
             },success:function(data){
                 flow(data);
-                $("#get_data_3432").load("edit_materials.php?data="+data_1.value+""); 
+                $(".trophy").load("fetch_by_departments.php"); 
             }
           })
         })

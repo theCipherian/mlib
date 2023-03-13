@@ -136,11 +136,11 @@ if($is_it < 0){
         $("#data_change_232").text("Edit");
         $("#get_data_3432").load("edit_materials.php?data="+edit+"");
       })
-      $(".delete_material").click(function(){
+      $(".delete_material").unbind("click").click(function(){
       var data_1 = $(this).attr("data-target");
       $(".confirm").css("display","flex");
       $(".yes").unbind("click").click(function(){
-      $("#"+data_1).css("display","none");
+       setTimeout(() => {
       $.ajax({
             url:"parser.php",
             type:"post",
@@ -152,6 +152,7 @@ if($is_it < 0){
                 $(".trophy").load("view_materials.php"); 
             }
           })
+        }, 500);
         })
         setTimeout(() => {
               $(".confirm").css("display","none");
