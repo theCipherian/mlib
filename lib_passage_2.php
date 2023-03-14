@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("init.php");
+include("init_2.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -146,7 +146,7 @@ if($is_it < 0){
             type:"post",
             async:false,
             data:{
-            "del_data":data_1.value
+            "del_data":data_1
             },success:function(data){
                 flow(data);
                 $(".trophy").load("latest_commits.php"); 
