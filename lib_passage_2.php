@@ -710,8 +710,14 @@ input{
     display:none;
 }
 @media screen and (max-width:900px){
-    
+    .lock::placeholder{
+        font-size: 2rem;
+    }    
+    .lock{
+        font-size:1.2rem;
+    }
 }
+
     </style>
 </head>
 <body>
@@ -732,13 +738,11 @@ input{
          <div class='sidepart_header'> <span class='thing_345' id='data_change_232'>Administrator</span> <div id='sidepart_terminate'> <i class='bx bx-lock-alt icon_hover'></i></div> </div>
          <div class='sidepart_items' id='get_data_3432'>
          <form class='department_add'>
-        <input type="text">
+        <input type="text" placeholder="Enter email">
          <input type="text" class="lock" placeholder='Enter Key ####'>
          <div class='button ' id='data_verify'>Done  </div>
-         <!-- <a style='text-decoration:none;color:unset' href='lib_passage1.php'> <div class='in_text'>- I'M A STUDENT -</div></a> -->
          </form>  
          <div>
-         <!-- <img src="Flame_Sign_In_transparent_by_Icons8.gif" alt=""> -->
          </div>
          </div>
      </div>
