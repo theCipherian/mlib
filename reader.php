@@ -21,7 +21,7 @@ if(!isset($_SESSION['key_2'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link type="image/png" rel="icon" href="assets/icons8-cells-basicons-—-line-32.png">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href="https://api.fontshare.com/v2/css?f[]=supreme@100,500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <title>Mocklib</title>
@@ -491,22 +491,16 @@ animation: scroll 1.3s linear infinite;
        </div>
     </div>
     <div class="lib_holder">
-        <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
-        <div class="lib_ l02">Students <div><i class='bx bx-pencil' ></i></div> </div>
-        <div class="lib_ l03">Comments <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_ l03">Comments <div><i style='font-size:1.5rem' class="uil uil-megaphone"></i></div> </div>
     </div>
     <br>
     <div class="logs">
         <div class="log_item">
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Materials</div>
-                <div class="matt matt2 add_material"><i class='bx bx-plus'></i></div>
-                <div class="matt"><select class='switch' size="1">
-                    <option value="">Sort by</option>
-                    <option value="1">Latest commits</option>
-                    <option value="2">Oldest commits</option>
-                    <option value="3">Departments</option>
-                  </select></div>
+                <div class="matt">
+                    Search <i class='bx bx-search-alt' ></i>
+                </div>
             </div>
             <br>
             <div class='trophy'>
@@ -515,7 +509,7 @@ animation: scroll 1.3s linear infinite;
         </div>
         <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
             <div class="head_items">
-                <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
+                <div class="matt"><i class='bx bx-collection'></i> Recently read</div>
             </div>
             <br>
             <div class='trophy_2'>
@@ -590,10 +584,8 @@ animation: scroll 1.3s linear infinite;
            $("#get_data_3432").load("settings.php");
            $(".morph").css("display","none");
         });
-        $(".trophy").load("view_materials.php");
-
+        $(".trophy").load("material_list.php");
         $(".trophy_2").load("recent_materials.php");
-
         $(".closer").click(function(){
             $(".morph").css("display","none");
         })
