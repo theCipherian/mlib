@@ -464,9 +464,30 @@ animation: scroll 1.3s linear infinite;
         border-radius:8px;
         
     }
+    .search_prompt{
+        top:0;
+        position:fixed;
+        left:0;
+        right:0;
+        width:40%;
+        margin:auto;
+        background-color: #fff;
+        padding:1rem;
+        height:5rem;
+        transition:none !important;
+    }
+    .search_prompt input{
+        border:2px solid #121121;
+        border-radius:30px;
+        padding:20px;
+        height:3rem;
+    }
     </style>
 </head>
 <body>
+    <div class="search_prompt">
+        <input id='text_search' type="text" placeholder='search for material'>
+    </div>
 <div class='lineloader'></div>
 <div class='confirm bounce-in-right'>
   <div class="yes">Confirm</div>
@@ -498,7 +519,7 @@ animation: scroll 1.3s linear infinite;
         <div class="log_item">
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Materials</div>
-                <div class="matt">
+                <div class="matt search_con">
                     Search <i class='bx bx-search-alt' ></i>
                 </div>
             </div>
@@ -530,6 +551,9 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
+    $(".search_con").click(function(){
+        $(".search_prompt").toggle("noner");
+    })
     $(".switch").change(function(){
         var data = document.querySelector(".switch");
         if(data.value == 1){
