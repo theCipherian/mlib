@@ -128,39 +128,11 @@ if($is_it < 0){
       }
     ?>
     <script>
-      $(".edit").click(function(){
-        var edit = $(this).attr("data-target");
-        $(".sidepart").removeClass("noner");
-        $("#data_change_232").text("Edit");
-        $("#get_data_3432").load("edit_materials.php?data="+edit+"");
-      })
-      $(".delete_material").unbind("click").click(function(){
-      var data_1 = $(this).attr("data-target");
-      $(".confirm").css("display","flex");
-      $(".yes").unbind("click").click(function(){
-       setTimeout(() => {
-      $.ajax({
-            url:"parser.php",
-            type:"post",
-            async:false,
-            data:{
-            "del_data":data_1
-            },success:function(data){
-                flow(data);
-                $(".trophy").load("view_materials.php"); 
-            }
-          })
-        }, 500);
-        })
-        setTimeout(() => {
-              $(".confirm").css("display","none");
-        }, 3000);
-      });
       $(".view").click(function(){
         var data_1 = $(this).attr("data-target");
         flow("Fetching file...")
         setTimeout(() => {
-            window.open('http://localhost/lib/file_uploads/'+data_1+'', '_blank');
+            window.open('http://localhost/lib/cloudreader?data='+data_1+'', '_blank');
             // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:80/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:8080/lib/file_uploads/'+data_1+'', '_blank');
