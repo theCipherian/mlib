@@ -735,10 +735,10 @@ input{
     </div>
     <!-- SIDE PARTS -->
      <div class='sidepart '>
-         <div class='sidepart_header'> <span class='thing_345' id='data_change_232'>Administrator</span> <div id='sidepart_terminate'> <i class='bx bx-lock-alt icon_hover'></i></div> </div>
+         <div class='sidepart_header'> <span class='thing_345' id='data_change_232'>Student</span> <div id='sidepart_terminate'> <i class='bx bx-lock-alt icon_hover'></i></div> </div>
          <div class='sidepart_items' id='get_data_3432'>
          <form class='department_add'>
-        <input type="text" placeholder="Enter email">
+        <input type="text" placeholder="Enter email" class='email'>
          <input type="text" class="lock" placeholder='Enter Key ####'>
          <div class='button ' id='data_verify'>Done  </div>
          </form>  
@@ -758,11 +758,13 @@ $(document).ready(function(){
     }
     
     $("#data_verify").click(function(){
+        var email = document.querySelector(".email");
         var key_ = document.querySelector(".lock");
         $.ajax({
-        url:'parser.php',
+        url:'student_parser.php',
         method:'POST',
         data:{
+            "email":email.value,
             "key":key_.value
         },
         beforeSend:function(){
@@ -771,7 +773,7 @@ $(document).ready(function(){
         success:function(data){
             flow(data);
             setTimeout(() => {
-                window.location.href = 'index.php';
+                window.location.href = 'reader.php';
             }, 2000);
         }
         });

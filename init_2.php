@@ -24,4 +24,3 @@ $query_2 = mysqli_query($init, "SELECT * FROM institute");
 $arr_2 = mysqli_fetch_array($query_2);
 $naming = $arr_2['naming'];
 $logo = $arr_2['institute_logo'];
-$key_ = $arr_2['key_'];
