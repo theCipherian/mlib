@@ -39,7 +39,7 @@ include("init_2.php");
   color:green;
 }
 .row_icons span:hover{
-    color:#fff !important;
+    color:green;
 }
 </style>
 
@@ -75,7 +75,7 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
-$query = mysqli_query($init, "SELECT * FROM material");
+$query = mysqli_query($init, "SELECT * FROM material ORDER BY date_ DESC LIMIT 1");
 $is_it = mysqli_num_rows($query);
 
 if($is_it < 0){
@@ -105,7 +105,9 @@ if($is_it < 0){
                 <div><?php  echo $naming_dep ?></div>
                 <br>
                 <div class='row_icons'>
-             <span data-target="<?php echo $material_file  ?>" class='view btn'>Read</span>
+             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
+             <span data-target="<?php  echo $uni_material ?>" class='edit'>Edit</span>
+             <span data-target="<?php echo $material_file  ?>" class='view'>View</span>
              </div>
              </div>
              <br>
@@ -134,11 +136,11 @@ if($is_it < 0){
         $("#data_change_232").text("Edit");
         $("#get_data_3432").load("edit_materials.php?data="+edit+"");
       })
-      $(".delete_material").unbind("click").click(function(){
+      $(".delete_material").click(function(){
       var data_1 = $(this).attr("data-target");
       $(".confirm").css("display","flex");
       $(".yes").unbind("click").click(function(){
-       setTimeout(() => {
+      $("#"+data_1).css("display","none");
       $.ajax({
             url:"parser.php",
             type:"post",
@@ -147,10 +149,9 @@ if($is_it < 0){
             "del_data":data_1
             },success:function(data){
                 flow(data);
-                $(".trophy").load("view_materials.php"); 
+                $(".trophy_2").load("recent_materials.php"); 
             }
           })
-        }, 500);
         })
         setTimeout(() => {
               $(".confirm").css("display","none");

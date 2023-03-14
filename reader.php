@@ -512,7 +512,7 @@ animation: scroll 1.3s linear infinite;
        </div>
     </div>
     <div class="lib_holder">
-        <div class="lib_ l03">Comments <div><i style='font-size:1.5rem' class="uil uil-megaphone"></i></div> </div>
+        <div class="lib_ l03">News <div><i style='font-size:1.5rem' class="uil uil-megaphone"></i></div> </div>
     </div>
     <br>
     <div class="logs">
@@ -554,19 +554,6 @@ animation: scroll 1.3s linear infinite;
     $(".search_con").click(function(){
         $(".search_prompt").toggle("noner");
     })
-    $(".switch").change(function(){
-        var data = document.querySelector(".switch");
-        if(data.value == 1){
-       $(".trophy").load("latest_commits.php");
-       flow("fetching latest commits");
-        }else if(data.value == 2){
-            $(".trophy").load("oldest_commits.php");
-            flow("fetching oldest commits");
-        }else if(data.value == 3){
-            $(".trophy").load("search_by_department.php");
-            flow("searching by departments");
-        }
-    })
     let flow = (text) =>{
         $(".flow").text(text);
         $(".flow").css("display","flex");
@@ -578,28 +565,10 @@ animation: scroll 1.3s linear infinite;
             $(".sidepart").addClass("noner");
             $(".morph").css("display","none");
         })
-        $(".l01").click(function(){
-           $(".sidepart").removeClass("noner");
-           $("#data_change_232").text("Departments");
-           $("#get_data_3432").load("departments.php");
-           $(".morph").css("display","none");
-        });
-        $(".l02").click(function(){
-           $(".sidepart").removeClass("noner");
-           $("#data_change_232").text("Students");
-           $("#get_data_3432").load("students.php");
-           $(".morph").css("display","none");
-        });
         $(".l03").click(function(){
            $(".sidepart").removeClass("noner");
-           $("#data_change_232").text("Comment");
-           $("#get_data_3432").load("edit_comments.php");
-           $(".morph").css("display","none");
-        });
-        $(".add_material").click(function(){
-           $(".sidepart").removeClass("noner");
-           $("#data_change_232").text("Materials");
-           $("#get_data_3432").load("add_material.php");
+           $("#data_change_232").text("News");
+           $("#get_data_3432").load("comments_feed.php");
            $(".morph").css("display","none");
         });
         $(".settings").click(function(){
