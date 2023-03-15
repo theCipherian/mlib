@@ -1,13 +1,14 @@
 <?php
 include("init_2.php");
 ?>
-
 <style>
+
 .hel{
     margin:10px;
     font-weight:bold;
     font-size:20px;
 }
+
 .listo{
     margin-left:10px;
     padding:1rem;
