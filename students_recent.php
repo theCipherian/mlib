@@ -77,14 +77,12 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
-$check_recent = mysqli_query($init, "SELECT * FROM last_read WHERE user = '$key' ORDER BY ");
+$check_recent = mysqli_query($init, "SELECT * FROM last_read WHERE user = '$key' ORDER BY date_ DESC");
 $is_it = mysqli_num_rows($check_recent);
 if($is_it > 0){
-     $arr = mysqli_fetch_array($check_recent);
+     while($arr = mysqli_fetch_array($check_recent)){
      $m_name = $arr['book'];
-}else{
-    exit;
-}
+     
 $query = mysqli_query($init, "SELECT * FROM material WHERE material_file = '$m_name'");
 
 
@@ -155,3 +153,10 @@ if($is_it < 0){
         }, 2000);
       })
 </script>
+<?php
+}
+}else{
+    echo "Book not available";
+    exit;
+}
+?>

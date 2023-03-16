@@ -10,6 +10,8 @@ if(isset($_GET['data'])){
     if($is_it > 0){
       $arr = mysqli_fetch_array($query);
       $current_page = $arr['page'];
+    }else{
+      $current_page = 1;
     }
 }
   ?>
