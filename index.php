@@ -587,7 +587,7 @@ animation: scroll 1.3s linear infinite;
         $(".settings").click(function(){
            $(".sidepart").removeClass("noner");
            $("#data_change_232").text("Settings");
-           $("#get_data_3432").load("settings.php");
+           $("#get_data_3432").load("student_settings.php");
            $(".morph").css("display","none");
         });
         $(".trophy").load("view_materials.php");

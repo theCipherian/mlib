@@ -135,7 +135,7 @@ if($is_it < 0){
       })
       $(".view").click(function(){
         var data_1 = $(this).attr("data-target");
-        flow("Fetching file...")
+        flow("Fetching file...");
         setTimeout(() => {
             window.open('http://localhost/lib/cloudreader?data='+data_1+'', '_blank');
             // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
