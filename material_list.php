@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("init_2.php");
 ?>
 <style>
@@ -79,7 +80,7 @@ function formatSizeUnits($bytes)
 $query = mysqli_query($init, "SELECT * FROM material WHERE department  = '$department'");
 $is_it = mysqli_num_rows($query);
 
-if($is_it < 0){
+if($is_it < 1){
     ?>
       <div class='hel'>NO - MATERIALS</div>
     <?php
