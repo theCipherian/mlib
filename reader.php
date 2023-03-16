@@ -556,13 +556,16 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
-     
+    
      $(".data_search").click(function(){
         var text_search = document.getElementById("text_search");
         if(text_search.value.length < 1){
             flow("Invalid data");
         }else{
             flow("Searching");
+            var uri = "search_prof.php?req="+text_search.value+"";
+            var encoded = encodeURI(uri);
+            $(".trophy").load(encoded);
         }
      })
      

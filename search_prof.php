@@ -78,7 +78,7 @@ function formatSizeUnits($bytes)
 
 if(isset($_GET['req'])){
   $req = $_GET['req'];
-$query = mysqli_query($init, "SELECT * FROM material WHERE material_name LIKE BINARY '%$req%'");
+$query = mysqli_query($init, "SELECT * FROM material WHERE material_name LIKE '%$req%'");
 $is_it = mysqli_num_rows($query);
 
 if($is_it < 1){
