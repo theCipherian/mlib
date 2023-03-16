@@ -4,6 +4,13 @@ include("../init_2.php");
 
 if(isset($_GET['data'])){
     $m_data = $_GET['data'];
+
+    $query = mysqli_query($init, "SELECT * FROM last_read WHERE user = '$key' AND book = '$m_data'");
+    $is_it = mysqli_num_rows($query);
+    if($is_it > 0){
+      $arr = mysqli_fetch_array($query);
+      $current_page = $arr['page'];
+    }
 }
   ?>
 <!DOCTYPE html>
@@ -78,7 +85,13 @@ if(isset($_GET['data'])){
      var url = '../file_uploads/<?php echo $m_data  ?>';
 
       let pdfDoc = null,
-        pageNum = 1,
+        pageNum = <?php if($current_page){
+          echo "$current_page";
+        }else{
+          ?>
+         1
+          <?php
+        }  ?>,
         pageIsRendering = false,
         pageNumIsPending = null;
 
@@ -132,11 +145,21 @@ if(isset($_GET['data'])){
         }
         pageNum--;
         queueRenderPage(pageNum);
+        var current_page = pageNum;
+        $.ajax({
+                  url:"../parser_6.php",
+                  type:"post",
+                  async:false,
+                  data:{
+                      "current_page":current_page,
+                      "book": "<?php echo $m_data  ?>"
+                  },success:function(data){
+                  }
+                })
       };
 
       // Show Next Page
       const showNextPage = () => {
-
         if (pageNum >= pdfDoc.numPages) {
           return;
         }
@@ -148,7 +171,7 @@ if(isset($_GET['data'])){
                   type:"post",
                   async:false,
                   data:{
-                      "current_page":current_page.value,
+                      "current_page":current_page,
                       "book": "<?php echo $m_data  ?>"
                   },success:function(data){
                   }
