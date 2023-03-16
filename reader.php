@@ -469,6 +469,9 @@ animation: scroll 1.3s linear infinite;
         position:fixed;
         left:0;
         right:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
         width:40%;
         margin:auto;
         background-color: #fff;
@@ -479,6 +482,7 @@ animation: scroll 1.3s linear infinite;
     .search_prompt input{
         border:2px solid #121121;
         border-radius:30px;
+        margin-right: 10px;
         padding:20px;
         height:3rem;
     }
@@ -487,6 +491,7 @@ animation: scroll 1.3s linear infinite;
 <body>
     <div class="search_prompt">
         <input id='text_search' type="text" placeholder='search for material'>
+        <div class="btn data_search">Search</div>
     </div>
 <div class='lineloader'></div>
 <div class='confirm bounce-in-right'>
@@ -551,6 +556,16 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
+     
+     $(".data_search").click(function(){
+        var text_search = document.getElementById("text_search");
+        if(text_search.value.length < 1){
+            flow("Invalid data");
+        }else{
+            flow("Searching");
+        }
+     })
+     
     $(".search_con").click(function(){
         $(".search_prompt").toggle("noner");
     })
