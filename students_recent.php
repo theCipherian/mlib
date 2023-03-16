@@ -1,13 +1,15 @@
 <?php
-include("init.php");
+session_start();
+include("init_2.php");
 ?>
-
 <style>
+
 .hel{
     margin:10px;
     font-weight:bold;
     font-size:20px;
 }
+
 .listo{
     margin-left:10px;
     padding:1rem;
@@ -39,7 +41,7 @@ include("init.php");
   color:green;
 }
 .row_icons span:hover{
-    color:green;
+    color:#fff !important;
 }
 </style>
 
@@ -75,7 +77,17 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
-$query = mysqli_query($init, "SELECT * FROM material");
+$check_recent = mysqli_query($init, "SELECT * FROM last_read WHERE user = '$key' ORDER BY ");
+$is_it = mysqli_num_rows($check_recent);
+if($is_it > 0){
+     $arr = mysqli_fetch_array($check_recent);
+     $m_name = $arr['book'];
+}else{
+    exit;
+}
+$query = mysqli_query($init, "SELECT * FROM material WHERE material_file = '$m_name'");
+
+
 $is_it = mysqli_num_rows($query);
 
 if($is_it < 0){
@@ -105,9 +117,8 @@ if($is_it < 0){
                 <div><?php  echo $naming_dep ?></div>
                 <br>
                 <div class='row_icons'>
-             <i data-target='<?php echo $uni_material ?>' class='bx bx-trash delete_material'></i>
-             <span data-target="<?php  echo $uni_material ?>" class='edit'>Edit</span>
-             <span data-target="<?php echo $material_file  ?>" class='view'>View</span>
+             <span data-target="<?php echo $material_file  ?>" class='view btn'>Read</span>
+             <a download style='text-decoration:none;color:unset !important' href='file_uploads/<?php  echo $material_file  ?>'> <span data-target="<?php echo $material_file  ?>" class='download btn'>Download</span></a>
              </div>
              </div>
              <br>
@@ -130,39 +141,14 @@ if($is_it < 0){
       }
     ?>
     <script>
-      $(".edit").click(function(){
-        var edit = $(this).attr("data-target");
-        $(".sidepart").removeClass("noner");
-        $("#data_change_232").text("Edit");
-        $("#get_data_3432").load("edit_materials.php?data="+edit+"");
+      $(".download").click(function(){
+         flow("Fetcing file");
       })
-      $(".delete_material").unbind("click").click(function(){
-      var data_1 = $(this).attr("data-target");
-      $(".confirm").css("display","flex");
-      $(".yes").unbind("click").click(function(){
-       setTimeout(() => {
-      $.ajax({
-            url:"parser.php",
-            type:"post",
-            async:false,
-            data:{
-            "del_data":data_1
-            },success:function(data){
-                flow(data);
-                $(".trophy").load("view_materials.php"); 
-            }
-          })
-        }, 500);
-        })
-        setTimeout(() => {
-              $(".confirm").css("display","none");
-        }, 3000);
-      });
       $(".view").click(function(){
         var data_1 = $(this).attr("data-target");
-        flow("Fetching file...")
+        flow("Fetching file...");
         setTimeout(() => {
-            window.open('http://localhost/lib/file_uploads/'+data_1+'', '_blank');
+            window.open('http://localhost/lib/cloudreader?data='+data_1+'', '_blank');
             // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:80/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:8080/lib/file_uploads/'+data_1+'', '_blank');

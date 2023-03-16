@@ -12,6 +12,6 @@ if(isset($_POST['current_page'], $_POST['book'])){
     if($is_it > 0){
         $query_2 = mysqli_query($init, "UPDATE last_read SET book = '$book', user = '$key', page = '$current_page'");
     }else{
-        $query_3 = mysqli_query($init, "INSERT INTO last_read VALUES ('$uni','$book','$current_page','$key')");
+        $query_3 = mysqli_query($init, "INSERT INTO last_read VALUES ('$uni','$book','$current_page','$key','$date')");
     }
 }

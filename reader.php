@@ -578,7 +578,7 @@ animation: scroll 1.3s linear infinite;
            $(".morph").css("display","none");
         });
         $(".trophy").load("material_list.php");
-        $(".trophy_2").load("recent_materials.php");
+        $(".trophy_2").load("students_recent.php");
         $(".closer").click(function(){
             $(".morph").css("display","none");
         })
