@@ -85,3 +85,8 @@ if(isset($_POST['del_data'])){
     $query = mysqli_query($init, "DELETE FROM material WHERE unique_id = '$del_data'");
     echo "Deleted";
 }
+if(isset($_POST['current_page'], $_POST['book'])){
+    $current_page = $_POST['current_page'];
+    $book = $_POST['book'];
+    $query = mysqli_query($init, "UPDATE last_read SET unique_id = '$uni', book = '$book', page = '$current_page', user = '$key_2'")
+}

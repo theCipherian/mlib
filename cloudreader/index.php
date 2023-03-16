@@ -13,6 +13,7 @@ if(isset($_GET['data'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
     <title>PDF Viewer</title>
     <style>
@@ -135,11 +136,24 @@ if(isset($_GET['data'])){
 
       // Show Next Page
       const showNextPage = () => {
+
         if (pageNum >= pdfDoc.numPages) {
           return;
         }
         pageNum++;
+        var current_page = pageNum;
         queueRenderPage(pageNum);
+        $.ajax({
+                  url:"parser.php",
+                  type:"post",
+                  async:false,
+                  data:{
+                      "current_page":current_page.value,
+                      "book": "<?php echo $m_data  ?>"
+                  },success:function(data){
+                 
+                  }
+                })
       };
 
       // Get Document
