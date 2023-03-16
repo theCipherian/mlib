@@ -107,6 +107,7 @@ if($is_it < 0){
                 <br>
                 <div class='row_icons'>
              <span data-target="<?php echo $material_file  ?>" class='view btn'>Read</span>
+             <a download style='text-decoration:none;color:unset !important' href='file_uploads/<?php  echo $material_file  ?>'> <span data-target="<?php echo $material_file  ?>" class='download btn'>Download</span></a>
              </div>
              </div>
              <br>
@@ -129,6 +130,9 @@ if($is_it < 0){
       }
     ?>
     <script>
+      $(".download").click(function(){
+         flow("Fetcing file");
+      })
       $(".view").click(function(){
         var data_1 = $(this).attr("data-target");
         flow("Fetching file...")
