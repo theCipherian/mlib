@@ -156,7 +156,9 @@ if($is_it < 0){
 <?php
 }
 }else{
-    echo "Book not available";
+   ?>
+   <div style='font-size:1.3rem;font-weight:bold'>No recent reads</div>
+   <?php
     exit;
 }
 ?>
