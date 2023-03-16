@@ -144,7 +144,7 @@ if(isset($_GET['data'])){
         var current_page = pageNum;
         queueRenderPage(pageNum);
         $.ajax({
-                  url:"parser.php",
+                  url:"parser_6.php",
                   type:"post",
                   async:false,
                   data:{
