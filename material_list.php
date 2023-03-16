@@ -76,7 +76,7 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
-$query = mysqli_query($init, "SELECT * FROM material");
+$query = mysqli_query($init, "SELECT * FROM material WHERE department  = '$department'");
 $is_it = mysqli_num_rows($query);
 
 if($is_it < 0){
