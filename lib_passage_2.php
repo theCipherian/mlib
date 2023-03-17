@@ -711,10 +711,10 @@ input{
 }
 @media screen and (max-width:900px){
     .lock::placeholder{
-        font-size: 2rem;
+        font-size: 18px;
     }    
     .lock{
-        font-size:1.2rem;
+        font-size:18px !important;
     }
 }
 

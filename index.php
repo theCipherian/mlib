@@ -549,7 +549,7 @@ animation: scroll 1.3s linear infinite;
         <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_ l02">Students <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_ l03">Comments <div><i class='bx bx-pencil' ></i></div> </div>
-        <div class="lib_ l04 on-small">Recent <div><i class='bx bx-collection'></i></div> </div>
+        <div class="lib_ l04 on-small he00">Recent <div><i class='bx bx-collection'></i></div> </div>
     </div>
     <br>
     <div class="logs">
@@ -571,7 +571,7 @@ animation: scroll 1.3s linear infinite;
         </div>
         <div class="log_item log_item_2" style="border-left:1px solid #eee;padding-left:20px;">
             <div class="head_items">
-                <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
+                <div class="matt"><i class='bx bx-collection'></i> Recently added</div><div style='float:right' class='on-small close_2'>Close</div>
             </div>
             <br>
             <div class='trophy_2'>
@@ -592,6 +592,12 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
+        $(".he00").click(function(){
+        $(".log_item_2").css("display","block");
+    })
+    $(".close_2").click(function(){
+        $(".log_item_2").css("display","none");
+    })
     $(".switch").change(function(){
         var data = document.querySelector(".switch");
         if(data.value == 1){

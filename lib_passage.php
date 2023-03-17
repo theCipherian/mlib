@@ -689,6 +689,7 @@ input{
   font-family: monospace;
   letter-spacing: 10px;
 }
+
 .button:hover{
     border:2px solid #121212 !important;
     color:#fff !important;
@@ -709,6 +710,15 @@ input{
     z-index:999999 !important;
     display:none;
 }
+@media screen and (max-width:900px){
+    .lock::placeholder{
+        font-size: 18px;
+    }    
+    .lock{
+        font-size:18px !important;
+    }
+}
+
     </style>
 </head>
 <body>
