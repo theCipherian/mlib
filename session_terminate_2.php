@@ -4,5 +4,5 @@ include("init.php");
 session_destroy();
 ?>
 <script>
-    window.location.href = 'reader.php';
+    window.location.href = 'index.php';
 </script>

@@ -67,7 +67,17 @@ include("init.php");
     <div class="note">Institution name appears accros the platform, same as logo.</div>
     </div>
     </div>
+    <div class='cont'>
+ <div style='display:flex;align-items:center;' class="list list_2 logout"><i style='margin-right:10px' class='bx bx-log-out'></i> Logout</div>
+</div>
+<script>
+$(".logout").click(function(){
+    flow("Logging you out");
+    window.location.href = "session_terminate_2.php";
+})
+</script>
     <script>
+      
      var file_type = '';
      var selection = '';
     $(".cl").click(function(){

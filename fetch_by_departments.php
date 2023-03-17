@@ -134,8 +134,11 @@ if($is_it < 1){
         }
       }
     ?>
-    <div class='btn' style = 'width:max-content'>Reload search</div>
+    <div class='btn reload' style = 'width:max-content'>Reload search</div>
     <script>
+        $(".reload").click(function(){
+            $(".trophy").load("search_by_department.php");
+        })
       $(".edit").click(function(){
         var edit = $(this).attr("data-target");
         $(".sidepart").removeClass("noner");
