@@ -464,6 +464,61 @@ animation: scroll 1.3s linear infinite;
         border-radius:8px;
         
     }
+    .on-small{
+        display:none;
+    }
+    .sidepart{
+        height:100% !important;
+    }
+
+    @media screen and (max-width:1000px){
+        .on-small{
+            display:flex;
+        }
+        .log_item_2{
+         position:fixed;
+         top:0 !important;
+         left:0;
+         right:0;
+         display:none;
+         height:100%;
+         padding-right:20px;
+         max-width:100%;
+         background-color:#fff;
+         padding-left:0px !important;
+         border-left:0px !important;
+         overflow-y:scroll !important;
+
+        }
+        .he00{
+            display:flex;
+        }
+        .lib_{
+         margin:5px !important;
+        }
+        .lib_ i{
+            display: none !important;
+        }
+        .logs{
+            padding-left:0px !important;
+            padding-right:0px !important;
+        }
+        .ml0{
+            font-size:12px !important;
+        }
+        .row_icons{
+            border-top:none !important;
+        }
+        .lib_holder{
+         flex-wrap: wrap;
+        }
+    }
+    @media screen and (max-width:900px){
+        .search_prompt{
+        width:100%;
+        background: #fff;
+        }
+    }
     </style>
 </head>
 <body>
@@ -494,6 +549,7 @@ animation: scroll 1.3s linear infinite;
         <div class="lib_ l01">Departments <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_ l02">Students <div><i class='bx bx-pencil' ></i></div> </div>
         <div class="lib_ l03">Comments <div><i class='bx bx-pencil' ></i></div> </div>
+        <div class="lib_ l04 on-small">Recent <div><i class='bx bx-collection'></i></div> </div>
     </div>
     <br>
     <div class="logs">
@@ -513,7 +569,7 @@ animation: scroll 1.3s linear infinite;
              
             </div>
         </div>
-        <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
+        <div class="log_item log_item_2" style="border-left:1px solid #eee;padding-left:20px;">
             <div class="head_items">
                 <div class="matt"><i class='bx bx-collection'></i> Recently added</div>
             </div>
@@ -587,7 +643,7 @@ animation: scroll 1.3s linear infinite;
         $(".settings").click(function(){
            $(".sidepart").removeClass("noner");
            $("#data_change_232").text("Settings");
-           $("#get_data_3432").load("student_settings.php");
+           $("#get_data_3432").load("settings.php");
            $(".morph").css("display","none");
         });
         $(".trophy").load("view_materials.php");

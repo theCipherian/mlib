@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("init_2.php");
-
 $uni = mt_rand(000000,999999);
 
 if(isset($_POST['current_page'], $_POST['book'])){

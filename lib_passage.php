@@ -253,7 +253,7 @@ background-color:rgba(255,255,255,0.80);
     background-color:#fff;
     padding:1rem;
     transform:translateX(0%);
-    height:100vh;
+    height:100%;
     z-index:999 !important;
     box-shadow: -5px 0 5px -5px rgba(0,0,0,.1);
 }
@@ -729,7 +729,7 @@ input{
          <div class='sidepart_header'> <span class='thing_345' id='data_change_232'>Administrator</span> <div id='sidepart_terminate'> <i class='bx bx-lock-alt icon_hover'></i></div> </div>
          <div class='sidepart_items' id='get_data_3432'>
          <form class='department_add'>
-         <input type="text" class="lock" placeholder='Enter Key ####'>
+         <input type="password" class="lock" placeholder='Enter Key ####'>
          <div class='button ' id='data_verify'>Done  </div>
          <!-- <a style='text-decoration:none;color:unset' href='lib_passage1.php'> <div class='in_text'>- I'M A STUDENT -</div></a> -->
          </form>  

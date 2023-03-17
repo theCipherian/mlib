@@ -120,7 +120,7 @@ if($is_it < 0){
              </div>
              </div>
              <br>
-             <div>
+             <div class='ml0'>
                 <div style='color:green;'>
                 File size
                 <?php    

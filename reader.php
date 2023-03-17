@@ -479,12 +479,61 @@ animation: scroll 1.3s linear infinite;
         height:5rem;
         transition:none !important;
     }
+    .he00{
+        display:none;
+    }
     .search_prompt input{
         border:2px solid #121121;
         border-radius:30px;
         margin-right: 10px;
         padding:20px;
         height:3rem;
+    }
+    .on-small{
+        display:none;
+    }
+    .sidepart{
+        height:100% !important;
+    }
+
+    @media screen and (max-width:1000px){
+        .on-small{
+            display:flex;
+        }
+        .log_item_2{
+         position:fixed;
+         top:0 !important;
+         left:0;
+         right:0;
+         display:none;
+         height:100%;
+         padding-right:20px;
+         max-width:100%;
+         background-color:#fff;
+         padding-left:0px !important;
+         border-left:0px !important;
+         overflow-y:scroll !important;
+
+        }
+        .he00{
+            display:flex;
+        }
+        .logs{
+            padding-left:0px !important;
+            padding-right:0px !important;
+        }
+        .ml0{
+            font-size:12px !important;
+        }
+        .row_icons{
+            border-top:none !important;
+        }
+    }
+    @media screen and (max-width:900px){
+        .search_prompt{
+        width:100%;
+        background: #fff;
+        }
     }
     </style>
 </head>
@@ -518,6 +567,7 @@ animation: scroll 1.3s linear infinite;
     </div>
     <div class="lib_holder">
         <div class="lib_ l03">News <div><i style='font-size:1.5rem' class="uil uil-megaphone"></i></div> </div>
+        <div class="lib_ l09 he00">Recents <div><i style='font-size:1.5rem' class="bx bx-collection"></i></div> </div>
     </div>
     <br>
     <div class="logs">
@@ -530,16 +580,14 @@ animation: scroll 1.3s linear infinite;
             </div>
             <br>
             <div class='trophy'>
-             
             </div>
         </div>
-        <div class="log_item" style="border-left:1px solid #eee;padding-left:20px;">
+        <div class="log_item log_item_2" style="border-left:1px solid #eee;padding-left:20px;">
             <div class="head_items">
-                <div class="matt"><i class='bx bx-collection'></i> Recently read</div>
+                <div class="matt"><i class='bx bx-collection'></i> Recently read </div> <div style='float:right' class='on-small close_2'>Close</div>
             </div>
             <br>
             <div class='trophy_2'>
-             
              </div>
         </div>
     </div>
@@ -556,7 +604,12 @@ animation: scroll 1.3s linear infinite;
     <div class="flow">Hello world</div>
 </body>
 <script>
-    
+    $(".he00").click(function(){
+        $(".log_item_2").css("display","block");
+    })
+    $(".close_2").click(function(){
+        $(".log_item_2").css("display","none");
+    })
      $(".data_search").click(function(){
         var text_search = document.getElementById("text_search");
         if(text_search.value.length < 1){
