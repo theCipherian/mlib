@@ -5,7 +5,6 @@ include("init.php");
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
-
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 //Import PHPMailer classes into the global namespace
@@ -13,8 +12,9 @@ require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
 $n=15;
+
+
 function getName($n) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randomString = '';
@@ -25,8 +25,11 @@ function getName($n) {
     }
     return $randomString;
 }
+
+
 $uni = getName($n);
 $pass = getName($n);
+
 
 if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])){
     $data_1 = trim($_POST['data_1']);
@@ -61,11 +64,10 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
+
         //Recipients
         $mail->setFrom('lib@e-library.ng', 'Library access');
         $mail->addAddress($data_3, '');     //Add a recipient
-                                                    
-
 
 
         //Content
@@ -74,6 +76,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail->Body    = $body;
         $mail->AltBody = $body;
 
+        
         $mail->send();
         echo "Student added";
         } catch (Exception $e) {
