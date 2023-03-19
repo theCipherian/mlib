@@ -139,7 +139,7 @@ if($is_it < 1){
         var data_1 = $(this).attr("data-target");
         flow("Fetching file...");
         setTimeout(() => {
-            window.open('http://localhost/lib/cloudreader?data='+data_1+'', '_blank');
+            window.open('http://e-library.ng/cloudreader?data='+data_1+'', '_blank');
             // window.open('http://127.0.0.1/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:80/lib/file_uploads/'+data_1+'', '_blank');
             // window.open('http://127.0.0.1:8080/lib/file_uploads/'+data_1+'', '_blank');

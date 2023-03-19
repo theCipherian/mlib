@@ -54,15 +54,15 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         //Server settings
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'cipheriansvault.com';                     //Set the SMTP server to send through
+        $mail->Host       = 'e-library.ng';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'faust@cipheriansvault.com';                     //SMTP username
+        $mail->Username   = 'lib@e-library.ng';                     //SMTP username
         $mail->Password   = '';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('faust@cipheriansvault.com', 'Library access');
+        $mail->setFrom('lib@e-library.ng', 'Library access');
         $mail->addAddress($data_3, '');     //Add a recipient
                                                     
 
