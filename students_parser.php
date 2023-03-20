@@ -1,7 +1,7 @@
 <?php
+
 session_start();
 include("init.php");
-
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
@@ -13,7 +13,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 $n=15;
-
 
 function getName($n) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -41,7 +40,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
     if($is_it > 0){
         echo "Email address already in use";
     }else{
-        $query = mysqli_query($init, "INSERT INTO students VALUES ('$uni','$data_1','$data_2','$data_3','$pass','$data_4')");
+        $query = mysqli_query($init, "INSERT INTO students VALUES ('$uni','$data_1','$data_2','$data_3','$pass','$data_4')");        
         if($query){
         $subject = "Login details for library";
         $body = "";
@@ -76,7 +75,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail->Body    = $body;
         $mail->AltBody = $body;
 
-        
+
         $mail->send();
         echo "Student added";
         } catch (Exception $e) {
