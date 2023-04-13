@@ -52,6 +52,7 @@ include("init.php");
 </div>
 <script>
   $(".create_1").click(function(){
+    start_loader();
     let data_1 = document.getElementById("data_1");
     let data_2 = document.getElementById("data_2");
     let data_3 = document.getElementById("data_3");
@@ -61,6 +62,7 @@ include("init.php");
     }else if(data_4.value == 'unset'){
         flow("Select valid department");
     }else{
+     
     $.ajax({
           url:"students_parser.php",
           type:"post",
@@ -73,9 +75,15 @@ include("init.php");
           },
           error:function(data){
               alert(data);
+              setTimeout(() => {
+            stop_loader();
+        }, 2000);
           },
           success:function(data){
            flow(data);
+           setTimeout(() => {
+            stop_loader();
+        }, 2000);
           }
       })
     }

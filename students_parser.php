@@ -53,7 +53,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail = new PHPMailer(true);
         try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'rimtadmin.e-library.ng';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -69,7 +69,6 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail->Subject = $subject;
         $mail->Body    = $body;
         $mail->AltBody = $body;
-
 
         $mail->send();
         echo "Student added";
