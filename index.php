@@ -524,7 +524,7 @@ animation: scroll 1.3s linear infinite;
 <body>
 <div class='lineloader'></div>
 <div class='confirm bounce-in-right'>
-  <div class="yes">Confirm</div>
+<div class="yes">Confirm</div>
 </div>
     <div class="top_area">
        <div class="alpha"><h1><?php echo $naming ?></h1></div>

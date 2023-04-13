@@ -52,7 +52,6 @@ include("init.php");
 </div>
 <script>
   $(".create_1").click(function(){
-
     let data_1 = document.getElementById("data_1");
     let data_2 = document.getElementById("data_2");
     let data_3 = document.getElementById("data_3");
@@ -71,7 +70,11 @@ include("init.php");
               "data_2":data_2.value,
               "data_3":data_3.value,
               "data_4":data_4.value,
-          },success:function(data){
+          },
+          error:function(data){
+              alert(data);
+          },
+          success:function(data){
            flow(data);
           }
       })

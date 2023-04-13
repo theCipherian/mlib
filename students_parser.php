@@ -2,11 +2,11 @@
 
 session_start();
 include("init.php");
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
+require_once 'Exception.php';
+require_once 'PHPMailer.php';
+require_once 'SMTP.php';
 //Load Composer's autoloader
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -40,7 +40,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
     if($is_it > 0){
         echo "Email address already in use";
     }else{
-        $query = mysqli_query($init, "INSERT INTO students VALUES ('$uni','$data_1','$data_2','$data_3','$pass','$data_4')");        
+        $query = mysqli_query($init, "INSERT INTO students VALUES ('$uni','$data_1','$data_2','$data_3','$pass','$data_4','')");        
         if($query){
         $subject = "Login details for library";
         $body = "";
@@ -51,24 +51,19 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         ';
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-
         try {
         //Server settings
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'e-library.ng';                     //Set the SMTP server to send through
+        $mail->Host       = 'rimtadmin.e-library.ng';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'lib@e-library.ng';                     //SMTP username
-        $mail->Password   = '';                               //SMTP password
+        $mail->Username   = 'mail@rimtadmin.e-library.ng';                     //SMTP username
+        $mail->Password   = 'KzB7gX9hujJDJfw';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-
         //Recipients
-        $mail->setFrom('lib@e-library.ng', 'Library access');
+        $mail->setFrom('mail@rimtadmin.e-library.ng', 'Library access');
         $mail->addAddress($data_3, '');     //Add a recipient
-
-
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = $subject;
@@ -79,7 +74,7 @@ if(isset($_POST['data_1'], $_POST['data_2'], $_POST['data_3'], $_POST['data_4'])
         $mail->send();
         echo "Student added";
         } catch (Exception $e) {
-
+echo $e;
         }
                 }
             }

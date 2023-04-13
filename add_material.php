@@ -221,6 +221,9 @@ include("init.php");
                     beforeSend:function(){
                      start_loader();
                     },
+                    error:function(data){
+                     alert(data)
+                    },
                     success:function(data){
                       flow(data);
                       stop_loader();

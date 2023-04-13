@@ -19,11 +19,12 @@ if(isset($_GET['data'])){
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <title>PDF Viewer</title>
     <style>
         .button{
@@ -66,22 +67,24 @@ if(isset($_GET['data'])){
 
   }
   }
+  .skip{
+    font-size:2rem;
+    color:black;
+  }
     </style>
   </head>
   <body>
-
 <nav>
     <div style='width:100%' class='p-34923'>
 <div class='button ' id="prev-page"> Prev Page <i class='bx bx-book' ></i></div>
+<div class='skip'><i class="uil uil-angle-right"></i></div>
 <span class="page-info">
     Page <span id="page-num"></span> of <span id="page-count"></span>
   </span>
 <div class='button '  id="next-page">Next Page  &nbsp <i class='bx bx-book' ></i></div>
     </div>
 </nav>
-
     <canvas id="pdf-render"></canvas>
-
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
    <script>
      var url = '../file_uploads/<?php echo $m_data  ?>';
@@ -97,7 +100,7 @@ if(isset($_GET['data'])){
         pageIsRendering = false,
         pageNumIsPending = null;
 
-      const scale = 1.5,
+      const scale = 2,
         canvas = document.querySelector('#pdf-render'),
         ctx = canvas.getContext('2d');
 
@@ -139,7 +142,6 @@ if(isset($_GET['data'])){
           renderPage(num);
         }
       };
-
       // Show Prev Page
       const showPrevPage = () => {
         if (pageNum <= 1) {
@@ -159,7 +161,6 @@ if(isset($_GET['data'])){
                   }
                 })
       };
-
       // Show Next Page
       const showNextPage = () => {
         if (pageNum >= pdfDoc.numPages) {
@@ -179,7 +180,10 @@ if(isset($_GET['data'])){
                   }
                 })
       };
-
+      function go_skip (page){
+        var current_page = pageNum;
+        
+      }
       // Get Document
       pdfjsLib
         .getDocument(url)
@@ -189,6 +193,7 @@ if(isset($_GET['data'])){
           document.querySelector('#page-count').textContent = pdfDoc.numPages;
 
           renderPage(pageNum);
+          
         })
         .catch(err => {
           // Display error
